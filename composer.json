@@ -1,18 +1,19 @@
 {
-    "name": "GIT_USER_ID/GIT_REPO_ID",
+    "name": "Zerogrey/axerve-php",
     "description": "",
     "keywords": [
-        "swagger",
+        "axerve",
+        "zerogrey",
         "php",
         "sdk",
         "api"
     ],
-    "homepage": "http://swagger.io",
+    "homepage": "https://github.com/Zerogrey/axerve-php",
     "license": "proprietary",
     "authors": [
         {
-            "name": "Swagger and contributors",
-            "homepage": "https://github.com/swagger-api/swagger-codegen"
+            "name": "ZeroGrey",
+            "homepage": "https://www.zerogrey.com/"
         }
     ],
     "require": {
