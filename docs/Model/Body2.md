@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**order_details** | [**\Swagger\Client\Model\Apiv1paymentcreateOrderDetails**](Apiv1paymentcreateOrderDetails.md) |  | [optional] 
+**order_details** | [**\Axerve\Client\Model\Apiv1paymentcreateOrderDetails**](Apiv1paymentcreateOrderDetails.md) |  | [optional] 
 **amount** | **string** |  | [optional] 
-**shipping_details** | [**\Swagger\Client\Model\Apiv1paymentcreateShippingDetails**](Apiv1paymentcreateShippingDetails.md) |  | [optional] 
+**shipping_details** | [**\Axerve\Client\Model\Apiv1paymentcreateShippingDetails**](Apiv1paymentcreateShippingDetails.md) |  | [optional] 
 **payment_id** | **string** |  | [optional] 
 **shop_login** | **string** |  | [optional] 
 
