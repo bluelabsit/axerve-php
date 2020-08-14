@@ -56,9 +56,9 @@ class Body2 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'order_details' => '\Axerve\Client\Model\Apiv1paymentcreateOrderDetails',
+        'order_details' => '\Axerve\Client\Model\OrderDetailsModel',
 'amount' => 'string',
-'shipping_details' => '\Axerve\Client\Model\Apiv1paymentcreateShippingDetails',
+'shipping_details' => '\Axerve\Client\Model\ShippingDetailsModel',
 'payment_id' => 'string',
 'shop_login' => 'string'    ];
 
@@ -223,7 +223,7 @@ class Body2 implements ModelInterface, ArrayAccess
     /**
      * Gets order_details
      *
-     * @return \Axerve\Client\Model\Apiv1paymentcreateOrderDetails
+     * @return \Axerve\Client\Model\OrderDetailsModel
      */
     public function getOrderDetails()
     {
@@ -233,7 +233,7 @@ class Body2 implements ModelInterface, ArrayAccess
     /**
      * Sets order_details
      *
-     * @param \Axerve\Client\Model\Apiv1paymentcreateOrderDetails $order_details order_details
+     * @param \Axerve\Client\Model\OrderDetailsModel $order_details order_details
      *
      * @return $this
      */
@@ -271,7 +271,7 @@ class Body2 implements ModelInterface, ArrayAccess
     /**
      * Gets shipping_details
      *
-     * @return \Axerve\Client\Model\Apiv1paymentcreateShippingDetails
+     * @return \Axerve\Client\Model\ShippingDetailsModel
      */
     public function getShippingDetails()
     {
@@ -281,7 +281,7 @@ class Body2 implements ModelInterface, ArrayAccess
     /**
      * Sets shipping_details
      *
-     * @param \Axerve\Client\Model\Apiv1paymentcreateShippingDetails $shipping_details shipping_details
+     * @param \Axerve\Client\Model\ShippingDetailsModel $shipping_details shipping_details
      *
      * @return $this
      */

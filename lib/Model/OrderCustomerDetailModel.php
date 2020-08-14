@@ -39,7 +39,7 @@ use \Axerve\Client\ObjectSerializer;
  * @author   Axerve Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Apiv1paymentcreateOrderDetailsCustomerDetail implements ModelInterface, ArrayAccess
+class OrderCustomerDetailModel implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 

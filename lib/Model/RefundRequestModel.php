@@ -1,13 +1,13 @@
 <?php
 /**
- * InlineResponse200
+ * Body5
  *
  * PHP version 5
  *
  * @category Class
  * @package  Axerve\Client
  * @author   Axerve Codegen team
- * @link     https://github.com/axerve-api/swagger-codegen
+ * @link     https://github.com/swagger-api/swagger-codegen
  */
 
 /**
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Axerve\Client\ObjectSerializer;
 
 /**
- * InlineResponse200 Class Doc Comment
+ * Body5 Class Doc Comment
  *
  * @category Class
  * @package  Axerve\Client
  * @author   Axerve Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class InlineResponse200 implements ModelInterface, ArrayAccess
+class RefundRequestModel implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'inline_response_200';
+    protected static $swaggerModelName = 'body_5';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,8 +56,11 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'error' => '\Axerve\Client\Model\InlineResponse200Error',
-'payload' => '\Axerve\Client\Model\InlineResponse200Payload'    ];
+        'amount' => 'string',
+'payment_id' => 'string',
+'refund_reason' => 'string',
+'currency' => 'string',
+'shop_login' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -65,8 +68,11 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'error' => null,
-'payload' => null    ];
+        'amount' => null,
+'payment_id' => null,
+'refund_reason' => null,
+'currency' => null,
+'shop_login' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -95,8 +101,11 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'error' => 'error',
-'payload' => 'payload'    ];
+        'amount' => 'amount',
+'payment_id' => 'paymentID',
+'refund_reason' => 'refundReason',
+'currency' => 'currency',
+'shop_login' => 'shopLogin'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -104,8 +113,11 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'error' => 'setError',
-'payload' => 'setPayload'    ];
+        'amount' => 'setAmount',
+'payment_id' => 'setPaymentId',
+'refund_reason' => 'setRefundReason',
+'currency' => 'setCurrency',
+'shop_login' => 'setShopLogin'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -113,8 +125,11 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'error' => 'getError',
-'payload' => 'getPayload'    ];
+        'amount' => 'getAmount',
+'payment_id' => 'getPaymentId',
+'refund_reason' => 'getRefundReason',
+'currency' => 'getCurrency',
+'shop_login' => 'getShopLogin'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -174,8 +189,11 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
-        $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
+        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['payment_id'] = isset($data['payment_id']) ? $data['payment_id'] : null;
+        $this->container['refund_reason'] = isset($data['refund_reason']) ? $data['refund_reason'] : null;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
+        $this->container['shop_login'] = isset($data['shop_login']) ? $data['shop_login'] : null;
     }
 
     /**
@@ -203,49 +221,121 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets error
+     * Gets amount
      *
-     * @return \Axerve\Client\Model\InlineResponse200Error
+     * @return string
      */
-    public function getError()
+    public function getAmount()
     {
-        return $this->container['error'];
+        return $this->container['amount'];
     }
 
     /**
-     * Sets error
+     * Sets amount
      *
-     * @param \Axerve\Client\Model\InlineResponse200Error $error error
+     * @param string $amount amount
      *
      * @return $this
      */
-    public function setError($error)
+    public function setAmount($amount)
     {
-        $this->container['error'] = $error;
+        $this->container['amount'] = $amount;
 
         return $this;
     }
 
     /**
-     * Gets payload
+     * Gets payment_id
      *
-     * @return \Axerve\Client\Model\InlineResponse200Payload
+     * @return string
      */
-    public function getPayload()
+    public function getPaymentId()
     {
-        return $this->container['payload'];
+        return $this->container['payment_id'];
     }
 
     /**
-     * Sets payload
+     * Sets payment_id
      *
-     * @param \Axerve\Client\Model\InlineResponse200Payload $payload payload
+     * @param string $payment_id payment_id
      *
      * @return $this
      */
-    public function setPayload($payload)
+    public function setPaymentId($payment_id)
     {
-        $this->container['payload'] = $payload;
+        $this->container['payment_id'] = $payment_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets refund_reason
+     *
+     * @return string
+     */
+    public function getRefundReason()
+    {
+        return $this->container['refund_reason'];
+    }
+
+    /**
+     * Sets refund_reason
+     *
+     * @param string $refund_reason refund_reason
+     *
+     * @return $this
+     */
+    public function setRefundReason($refund_reason)
+    {
+        $this->container['refund_reason'] = $refund_reason;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency
+     *
+     * @return string
+     */
+    public function getCurrency()
+    {
+        return $this->container['currency'];
+    }
+
+    /**
+     * Sets currency
+     *
+     * @param string $currency currency
+     *
+     * @return $this
+     */
+    public function setCurrency($currency)
+    {
+        $this->container['currency'] = $currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets shop_login
+     *
+     * @return string
+     */
+    public function getShopLogin()
+    {
+        return $this->container['shop_login'];
+    }
+
+    /**
+     * Sets shop_login
+     *
+     * @param string $shop_login shop_login
+     *
+     * @return $this
+     */
+    public function setShopLogin($shop_login)
+    {
+        $this->container['shop_login'] = $shop_login;
 
         return $this;
     }

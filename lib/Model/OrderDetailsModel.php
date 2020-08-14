@@ -1,6 +1,6 @@
 <?php
 /**
- * Apiv1paymentcreateShippingDetails
+ * Apiv1paymentcreateOrderDetails
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Axerve\Client\ObjectSerializer;
 
 /**
- * Apiv1paymentcreateShippingDetails Class Doc Comment
+ * Apiv1paymentcreateOrderDetails Class Doc Comment
  *
  * @category Class
  * @package  Axerve\Client
  * @author   Axerve Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Apiv1paymentcreateShippingDetails implements ModelInterface, ArrayAccess
+class OrderDetailsModel implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class Apiv1paymentcreateShippingDetails implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'apiv1paymentcreate_shippingDetails';
+    protected static $swaggerModelName = 'apiv1paymentcreate_orderDetails';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,12 +56,9 @@ class Apiv1paymentcreateShippingDetails implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ship_to_zip' => 'string',
-'ship_to_street2' => 'string',
-'ship_to_country_code' => 'string',
-'ship_to_name' => 'string',
-'ship_to_street' => 'string',
-'ship_to_state' => 'string'    ];
+        'customer_detail' => '\Axerve\Client\Model\OrderCustomerDetailModel',
+'shipping_address' => '\Axerve\Client\Model\OrderAddressModel',
+'billing_address' => '\Axerve\Client\Model\OrderAddressModel'];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -69,12 +66,9 @@ class Apiv1paymentcreateShippingDetails implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'ship_to_zip' => null,
-'ship_to_street2' => null,
-'ship_to_country_code' => null,
-'ship_to_name' => null,
-'ship_to_street' => null,
-'ship_to_state' => null    ];
+        'customer_detail' => null,
+'shipping_address' => null,
+'billing_address' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -103,12 +97,9 @@ class Apiv1paymentcreateShippingDetails implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'ship_to_zip' => 'shipToZip',
-'ship_to_street2' => 'shipToStreet2',
-'ship_to_country_code' => 'shipToCountryCode',
-'ship_to_name' => 'shipToName',
-'ship_to_street' => 'shipToStreet',
-'ship_to_state' => 'shipToState'    ];
+        'customer_detail' => 'customerDetail',
+'shipping_address' => 'shippingAddress',
+'billing_address' => 'billingAddress'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -116,12 +107,9 @@ class Apiv1paymentcreateShippingDetails implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'ship_to_zip' => 'setShipToZip',
-'ship_to_street2' => 'setShipToStreet2',
-'ship_to_country_code' => 'setShipToCountryCode',
-'ship_to_name' => 'setShipToName',
-'ship_to_street' => 'setShipToStreet',
-'ship_to_state' => 'setShipToState'    ];
+        'customer_detail' => 'setCustomerDetail',
+'shipping_address' => 'setShippingAddress',
+'billing_address' => 'setBillingAddress'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -129,12 +117,9 @@ class Apiv1paymentcreateShippingDetails implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'ship_to_zip' => 'getShipToZip',
-'ship_to_street2' => 'getShipToStreet2',
-'ship_to_country_code' => 'getShipToCountryCode',
-'ship_to_name' => 'getShipToName',
-'ship_to_street' => 'getShipToStreet',
-'ship_to_state' => 'getShipToState'    ];
+        'customer_detail' => 'getCustomerDetail',
+'shipping_address' => 'getShippingAddress',
+'billing_address' => 'getBillingAddress'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -194,12 +179,9 @@ class Apiv1paymentcreateShippingDetails implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['ship_to_zip'] = isset($data['ship_to_zip']) ? $data['ship_to_zip'] : null;
-        $this->container['ship_to_street2'] = isset($data['ship_to_street2']) ? $data['ship_to_street2'] : null;
-        $this->container['ship_to_country_code'] = isset($data['ship_to_country_code']) ? $data['ship_to_country_code'] : null;
-        $this->container['ship_to_name'] = isset($data['ship_to_name']) ? $data['ship_to_name'] : null;
-        $this->container['ship_to_street'] = isset($data['ship_to_street']) ? $data['ship_to_street'] : null;
-        $this->container['ship_to_state'] = isset($data['ship_to_state']) ? $data['ship_to_state'] : null;
+        $this->container['customer_detail'] = isset($data['customer_detail']) ? $data['customer_detail'] : null;
+        $this->container['shipping_address'] = isset($data['shipping_address']) ? $data['shipping_address'] : null;
+        $this->container['billing_address'] = isset($data['billing_address']) ? $data['billing_address'] : null;
     }
 
     /**
@@ -227,145 +209,73 @@ class Apiv1paymentcreateShippingDetails implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets ship_to_zip
+     * Gets customer_detail
      *
-     * @return string
+     * @return \Axerve\Client\Model\OrderCustomerDetailModel
      */
-    public function getShipToZip()
+    public function getCustomerDetail()
     {
-        return $this->container['ship_to_zip'];
+        return $this->container['customer_detail'];
     }
 
     /**
-     * Sets ship_to_zip
+     * Sets customer_detail
      *
-     * @param string $ship_to_zip ship_to_zip
+     * @param \Axerve\Client\Model\OrderCustomerDetailModel $customer_detail customer_detail
      *
      * @return $this
      */
-    public function setShipToZip($ship_to_zip)
+    public function setCustomerDetail($customer_detail)
     {
-        $this->container['ship_to_zip'] = $ship_to_zip;
+        $this->container['customer_detail'] = $customer_detail;
 
         return $this;
     }
 
     /**
-     * Gets ship_to_street2
+     * Gets shipping_address
      *
-     * @return string
+     * @return \Axerve\Client\Model\OrderAddressModel
      */
-    public function getShipToStreet2()
+    public function getShippingAddress()
     {
-        return $this->container['ship_to_street2'];
+        return $this->container['shipping_address'];
     }
 
     /**
-     * Sets ship_to_street2
+     * Sets shipping_address
      *
-     * @param string $ship_to_street2 ship_to_street2
+     * @param \Axerve\Client\Model\OrderAddressModel $shipping_address shipping_address
      *
      * @return $this
      */
-    public function setShipToStreet2($ship_to_street2)
+    public function setShippingAddress($shipping_address)
     {
-        $this->container['ship_to_street2'] = $ship_to_street2;
+        $this->container['shipping_address'] = $shipping_address;
 
         return $this;
     }
 
     /**
-     * Gets ship_to_country_code
+     * Gets billing_address
      *
-     * @return string
+     * @return \Axerve\Client\Model\OrderAddressModel
      */
-    public function getShipToCountryCode()
+    public function getBillingAddress()
     {
-        return $this->container['ship_to_country_code'];
+        return $this->container['billing_address'];
     }
 
     /**
-     * Sets ship_to_country_code
+     * Sets billing_address
      *
-     * @param string $ship_to_country_code ship_to_country_code
+     * @param \Axerve\Client\Model\OrderAddressModel $billing_address billing_address
      *
      * @return $this
      */
-    public function setShipToCountryCode($ship_to_country_code)
+    public function setBillingAddress($billing_address)
     {
-        $this->container['ship_to_country_code'] = $ship_to_country_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets ship_to_name
-     *
-     * @return string
-     */
-    public function getShipToName()
-    {
-        return $this->container['ship_to_name'];
-    }
-
-    /**
-     * Sets ship_to_name
-     *
-     * @param string $ship_to_name ship_to_name
-     *
-     * @return $this
-     */
-    public function setShipToName($ship_to_name)
-    {
-        $this->container['ship_to_name'] = $ship_to_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets ship_to_street
-     *
-     * @return string
-     */
-    public function getShipToStreet()
-    {
-        return $this->container['ship_to_street'];
-    }
-
-    /**
-     * Sets ship_to_street
-     *
-     * @param string $ship_to_street ship_to_street
-     *
-     * @return $this
-     */
-    public function setShipToStreet($ship_to_street)
-    {
-        $this->container['ship_to_street'] = $ship_to_street;
-
-        return $this;
-    }
-
-    /**
-     * Gets ship_to_state
-     *
-     * @return string
-     */
-    public function getShipToState()
-    {
-        return $this->container['ship_to_state'];
-    }
-
-    /**
-     * Sets ship_to_state
-     *
-     * @param string $ship_to_state ship_to_state
-     *
-     * @return $this
-     */
-    public function setShipToState($ship_to_state)
-    {
-        $this->container['ship_to_state'] = $ship_to_state;
+        $this->container['billing_address'] = $billing_address;
 
         return $this;
     }

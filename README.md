@@ -81,7 +81,7 @@ $apiInstance = new Axerve\Client\Api\PaymentApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Axerve\Client\Model\Body6(); // \Axerve\Client\Model\Body6 | 
+$body = new \Axerve\Client\Model\CancelPaymentRequestModel(); // \Axerve\Client\Model\Body6 | 
 
 try {
     $apiInstance->apiV1PaymentCancelPost($body);
@@ -107,10 +107,10 @@ $apiInstance = new Axerve\Client\Api\PaymentApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Axerve\Client\Model\Body1(); // \Axerve\Client\Model\Body1 | 
+$body = new \Axerve\Client\Model\CreatePaymentModel(); // \Axerve\Client\Model\Body1 | 
 
 try {
-    $result = $apiInstance->apiV1PaymentCreatePost($body);
+    $result = $apiInstance->create($body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentApi->apiV1PaymentCreatePost: ', $e->getMessage(), PHP_EOL;
@@ -150,11 +150,11 @@ $apiInstance = new Axerve\Client\Api\PaymentApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Axerve\Client\Model\Body3(); // \Axerve\Client\Model\Body3 | 
+$body = new \Axerve\Client\Model\SubmitPaymentModel(); // \Axerve\Client\Model\Body3 | 
 $payment_token = "payment_token_example"; // string | 
 
 try {
-    $apiInstance->apiV1PaymentSubmitPost($body, $payment_token);
+    $apiInstance->submit($body, $payment_token);
 } catch (Exception $e) {
     echo 'Exception when calling PaymentApi->apiV1PaymentSubmitPost: ', $e->getMessage(), PHP_EOL;
 }

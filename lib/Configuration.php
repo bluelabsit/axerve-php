@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Configuration
  * PHP version 5
@@ -8,7 +9,6 @@
  * @author   Axerve Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-
 /**
  * Axerve-php
  *
@@ -36,8 +36,11 @@ namespace Axerve\Client;
  * @author   Axerve Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Configuration
-{
+class Configuration {
+
+    private const SANDBOX_HOST = 'https://sandbox.gestpay.net';
+    private const PRODUCTION_HOST = 'https://ecomms2s.sella.it';
+
     private static $defaultConfiguration;
 
     /**
@@ -52,7 +55,9 @@ class Configuration
      *
      * @var string[]
      */
-    protected $apiKeyPrefixes = [];
+    protected $apiKeyPrefixes = [
+        'Authorization' => 'apikey'
+    ];
 
     /**
      * Access token for OAuth
@@ -80,7 +85,7 @@ class Configuration
      *
      * @var string
      */
-    protected $host = 'https://sandbox.gestpay.net';
+    protected $host = self::PRODUCTION_HOST;
 
     /**
      * User agent of the HTTP request, set to "PHP-Axerve" by default
@@ -94,6 +99,7 @@ class Configuration
      *
      * @var bool
      */
+    
     protected $debug = false;
 
     /**
@@ -113,21 +119,23 @@ class Configuration
     /**
      * Constructor
      */
-    public function __construct()
-    {
+    public function __construct() {
         $this->tempFolderPath = sys_get_temp_dir();
     }
 
     /**
      * Sets API key
      *
-     * @param string $apiKeyIdentifier API key identifier (authentication scheme)
+     * @param string $apiKeyIdentifier API key or identifier (authentication scheme)
      * @param string $key              API key or token
      *
      * @return $this
      */
-    public function setApiKey($apiKeyIdentifier, $key)
-    {
+    public function setApiKey($apiKeyIdentifier, $key = null) {
+        if ($key == null) {
+            $key = $apiKeyIdentifier;
+            $apiKeyIdentifier = 'Authorization';
+        }
         $this->apiKeys[$apiKeyIdentifier] = $key;
         return $this;
     }
@@ -139,8 +147,7 @@ class Configuration
      *
      * @return string API key or token
      */
-    public function getApiKey($apiKeyIdentifier)
-    {
+    public function getApiKey($apiKeyIdentifier) {
         return isset($this->apiKeys[$apiKeyIdentifier]) ? $this->apiKeys[$apiKeyIdentifier] : null;
     }
 
@@ -152,8 +159,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setApiKeyPrefix($apiKeyIdentifier, $prefix)
-    {
+    public function setApiKeyPrefix($apiKeyIdentifier, $prefix) {
         $this->apiKeyPrefixes[$apiKeyIdentifier] = $prefix;
         return $this;
     }
@@ -165,8 +171,7 @@ class Configuration
      *
      * @return string
      */
-    public function getApiKeyPrefix($apiKeyIdentifier)
-    {
+    public function getApiKeyPrefix($apiKeyIdentifier) {
         return isset($this->apiKeyPrefixes[$apiKeyIdentifier]) ? $this->apiKeyPrefixes[$apiKeyIdentifier] : null;
     }
 
@@ -177,8 +182,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setAccessToken($accessToken)
-    {
+    public function setAccessToken($accessToken) {
         $this->accessToken = $accessToken;
         return $this;
     }
@@ -188,8 +192,7 @@ class Configuration
      *
      * @return string Access token for OAuth
      */
-    public function getAccessToken()
-    {
+    public function getAccessToken() {
         return $this->accessToken;
     }
 
@@ -200,8 +203,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setUsername($username)
-    {
+    public function setUsername($username) {
         $this->username = $username;
         return $this;
     }
@@ -211,8 +213,7 @@ class Configuration
      *
      * @return string Username for HTTP basic authentication
      */
-    public function getUsername()
-    {
+    public function getUsername() {
         return $this->username;
     }
 
@@ -223,8 +224,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setPassword($password)
-    {
+    public function setPassword($password) {
         $this->password = $password;
         return $this;
     }
@@ -234,8 +234,7 @@ class Configuration
      *
      * @return string Password for HTTP basic authentication
      */
-    public function getPassword()
-    {
+    public function getPassword() {
         return $this->password;
     }
 
@@ -246,8 +245,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setHost($host)
-    {
+    public function setHost($host) {
         $this->host = $host;
         return $this;
     }
@@ -257,8 +255,7 @@ class Configuration
      *
      * @return string Host
      */
-    public function getHost()
-    {
+    public function getHost() {
         return $this->host;
     }
 
@@ -270,8 +267,7 @@ class Configuration
      * @throws \InvalidArgumentException
      * @return $this
      */
-    public function setUserAgent($userAgent)
-    {
+    public function setUserAgent($userAgent) {
         if (!is_string($userAgent)) {
             throw new \InvalidArgumentException('User-agent must be a string.');
         }
@@ -285,8 +281,7 @@ class Configuration
      *
      * @return string user agent
      */
-    public function getUserAgent()
-    {
+    public function getUserAgent() {
         return $this->userAgent;
     }
 
@@ -297,8 +292,11 @@ class Configuration
      *
      * @return $this
      */
-    public function setDebug($debug)
-    {
+    public function setDebug($debug) {
+        if ($debug) {
+            $this->setHost(self::SANDBOX_HOST);
+        }
+
         $this->debug = $debug;
         return $this;
     }
@@ -308,8 +306,7 @@ class Configuration
      *
      * @return bool
      */
-    public function getDebug()
-    {
+    public function getDebug() {
         return $this->debug;
     }
 
@@ -320,8 +317,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setDebugFile($debugFile)
-    {
+    public function setDebugFile($debugFile) {
         $this->debugFile = $debugFile;
         return $this;
     }
@@ -331,8 +327,7 @@ class Configuration
      *
      * @return string
      */
-    public function getDebugFile()
-    {
+    public function getDebugFile() {
         return $this->debugFile;
     }
 
@@ -343,8 +338,7 @@ class Configuration
      *
      * @return $this
      */
-    public function setTempFolderPath($tempFolderPath)
-    {
+    public function setTempFolderPath($tempFolderPath) {
         $this->tempFolderPath = $tempFolderPath;
         return $this;
     }
@@ -354,8 +348,7 @@ class Configuration
      *
      * @return string Temp folder path
      */
-    public function getTempFolderPath()
-    {
+    public function getTempFolderPath() {
         return $this->tempFolderPath;
     }
 
@@ -364,8 +357,7 @@ class Configuration
      *
      * @return Configuration
      */
-    public static function getDefaultConfiguration()
-    {
+    public static function getDefaultConfiguration() {
         if (self::$defaultConfiguration === null) {
             self::$defaultConfiguration = new Configuration();
         }
@@ -380,8 +372,7 @@ class Configuration
      *
      * @return void
      */
-    public static function setDefaultConfiguration(Configuration $config)
-    {
+    public static function setDefaultConfiguration(Configuration $config) {
         self::$defaultConfiguration = $config;
     }
 
@@ -390,9 +381,8 @@ class Configuration
      *
      * @return string The report for debugging
      */
-    public static function toDebugReport()
-    {
-        $report  = 'PHP SDK (Axerve\Client) Debug Report:' . PHP_EOL;
+    public static function toDebugReport() {
+        $report = 'PHP SDK (Axerve\Client) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
         $report .= '    OpenAPI Spec Version: 1.0.0' . PHP_EOL;
@@ -408,8 +398,7 @@ class Configuration
      *
      * @return string API key with the prefix
      */
-    public function getApiKeyWithPrefix($apiKeyIdentifier)
-    {
+    public function getApiKeyWithPrefix($apiKeyIdentifier) {
         $prefix = $this->getApiKeyPrefix($apiKeyIdentifier);
         $apiKey = $this->getApiKey($apiKeyIdentifier);
 
@@ -425,4 +414,5 @@ class Configuration
 
         return $keyWithPrefix;
     }
+
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Body5
+ * Body4
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Axerve\Client\ObjectSerializer;
 
 /**
- * Body5 Class Doc Comment
+ * Body4 Class Doc Comment
  *
  * @category Class
  * @package  Axerve\Client
  * @author   Axerve Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Body5 implements ModelInterface, ArrayAccess
+class PaymentCaptureRequestModel implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class Body5 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'body_5';
+    protected static $swaggerModelName = 'body_4';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,6 @@ class Body5 implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'amount' => 'string',
 'payment_id' => 'string',
-'refund_reason' => 'string',
 'currency' => 'string',
 'shop_login' => 'string'    ];
 
@@ -70,7 +69,6 @@ class Body5 implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'amount' => null,
 'payment_id' => null,
-'refund_reason' => null,
 'currency' => null,
 'shop_login' => null    ];
 
@@ -102,8 +100,7 @@ class Body5 implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'amount' => 'amount',
-'payment_id' => 'paymentID',
-'refund_reason' => 'refundReason',
+'payment_id' => 'paymentId',
 'currency' => 'currency',
 'shop_login' => 'shopLogin'    ];
 
@@ -115,7 +112,6 @@ class Body5 implements ModelInterface, ArrayAccess
     protected static $setters = [
         'amount' => 'setAmount',
 'payment_id' => 'setPaymentId',
-'refund_reason' => 'setRefundReason',
 'currency' => 'setCurrency',
 'shop_login' => 'setShopLogin'    ];
 
@@ -127,7 +123,6 @@ class Body5 implements ModelInterface, ArrayAccess
     protected static $getters = [
         'amount' => 'getAmount',
 'payment_id' => 'getPaymentId',
-'refund_reason' => 'getRefundReason',
 'currency' => 'getCurrency',
 'shop_login' => 'getShopLogin'    ];
 
@@ -191,7 +186,6 @@ class Body5 implements ModelInterface, ArrayAccess
     {
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['payment_id'] = isset($data['payment_id']) ? $data['payment_id'] : null;
-        $this->container['refund_reason'] = isset($data['refund_reason']) ? $data['refund_reason'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['shop_login'] = isset($data['shop_login']) ? $data['shop_login'] : null;
     }
@@ -264,30 +258,6 @@ class Body5 implements ModelInterface, ArrayAccess
     public function setPaymentId($payment_id)
     {
         $this->container['payment_id'] = $payment_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets refund_reason
-     *
-     * @return string
-     */
-    public function getRefundReason()
-    {
-        return $this->container['refund_reason'];
-    }
-
-    /**
-     * Sets refund_reason
-     *
-     * @param string $refund_reason refund_reason
-     *
-     * @return $this
-     */
-    public function setRefundReason($refund_reason)
-    {
-        $this->container['refund_reason'] = $refund_reason;
 
         return $this;
     }

@@ -1,13 +1,13 @@
 <?php
 /**
- * Body4
+ * InlineResponse200
  *
  * PHP version 5
  *
  * @category Class
  * @package  Axerve\Client
  * @author   Axerve Codegen team
- * @link     https://github.com/swagger-api/swagger-codegen
+ * @link     https://github.com/axerve-api/swagger-codegen
  */
 
 /**
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Axerve\Client\ObjectSerializer;
 
 /**
- * Body4 Class Doc Comment
+ * InlineResponse200 Class Doc Comment
  *
  * @category Class
  * @package  Axerve\Client
  * @author   Axerve Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Body4 implements ModelInterface, ArrayAccess
+class PaymentMethodsResponseModel implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class Body4 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'body_4';
+    protected static $swaggerModelName = 'inline_response_200';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,10 +56,8 @@ class Body4 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'amount' => 'string',
-'payment_id' => 'string',
-'currency' => 'string',
-'shop_login' => 'string'    ];
+        'error' => '\Axerve\Client\Model\InlineResponse200Error',
+'payload' => '\Axerve\Client\Model\InlineResponse200Payload'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -67,10 +65,8 @@ class Body4 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'amount' => null,
-'payment_id' => null,
-'currency' => null,
-'shop_login' => null    ];
+        'error' => null,
+'payload' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -99,10 +95,8 @@ class Body4 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'amount' => 'amount',
-'payment_id' => 'paymentId',
-'currency' => 'currency',
-'shop_login' => 'shopLogin'    ];
+        'error' => 'error',
+'payload' => 'payload'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -110,10 +104,8 @@ class Body4 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'amount' => 'setAmount',
-'payment_id' => 'setPaymentId',
-'currency' => 'setCurrency',
-'shop_login' => 'setShopLogin'    ];
+        'error' => 'setError',
+'payload' => 'setPayload'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -121,10 +113,8 @@ class Body4 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'amount' => 'getAmount',
-'payment_id' => 'getPaymentId',
-'currency' => 'getCurrency',
-'shop_login' => 'getShopLogin'    ];
+        'error' => 'getError',
+'payload' => 'getPayload'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -184,10 +174,8 @@ class Body4 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
-        $this->container['payment_id'] = isset($data['payment_id']) ? $data['payment_id'] : null;
-        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
-        $this->container['shop_login'] = isset($data['shop_login']) ? $data['shop_login'] : null;
+        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
     }
 
     /**
@@ -215,97 +203,49 @@ class Body4 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets amount
+     * Gets error
      *
-     * @return string
+     * @return \Axerve\Client\Model\InlineResponse200Error
      */
-    public function getAmount()
+    public function getError()
     {
-        return $this->container['amount'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets amount
+     * Sets error
      *
-     * @param string $amount amount
+     * @param \Axerve\Client\Model\InlineResponse200Error $error error
      *
      * @return $this
      */
-    public function setAmount($amount)
+    public function setError($error)
     {
-        $this->container['amount'] = $amount;
+        $this->container['error'] = $error;
 
         return $this;
     }
 
     /**
-     * Gets payment_id
+     * Gets payload
      *
-     * @return string
+     * @return \Axerve\Client\Model\InlineResponse200Payload
      */
-    public function getPaymentId()
+    public function getPayload()
     {
-        return $this->container['payment_id'];
+        return $this->container['payload'];
     }
 
     /**
-     * Sets payment_id
+     * Sets payload
      *
-     * @param string $payment_id payment_id
+     * @param \Axerve\Client\Model\InlineResponse200Payload $payload payload
      *
      * @return $this
      */
-    public function setPaymentId($payment_id)
+    public function setPayload($payload)
     {
-        $this->container['payment_id'] = $payment_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets currency
-     *
-     * @return string
-     */
-    public function getCurrency()
-    {
-        return $this->container['currency'];
-    }
-
-    /**
-     * Sets currency
-     *
-     * @param string $currency currency
-     *
-     * @return $this
-     */
-    public function setCurrency($currency)
-    {
-        $this->container['currency'] = $currency;
-
-        return $this;
-    }
-
-    /**
-     * Gets shop_login
-     *
-     * @return string
-     */
-    public function getShopLogin()
-    {
-        return $this->container['shop_login'];
-    }
-
-    /**
-     * Sets shop_login
-     *
-     * @param string $shop_login shop_login
-     *
-     * @return $this
-     */
-    public function setShopLogin($shop_login)
-    {
-        $this->container['shop_login'] = $shop_login;
+        $this->container['payload'] = $payload;
 
         return $this;
     }

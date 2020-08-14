@@ -39,7 +39,7 @@ use \Axerve\Client\ObjectSerializer;
  * @author   Axerve Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Body1 implements ModelInterface, ArrayAccess
+class CreatePaymentModel implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -64,8 +64,8 @@ class Body1 implements ModelInterface, ArrayAccess
 'payment_channel' => '\Axerve\Client\Model\Apiv1paymentcreatePaymentChannel',
 'payment_type' => 'string[]',
 'shop_transaction_id' => 'string',
-'order_details' => '\Axerve\Client\Model\Apiv1paymentcreateOrderDetails',
-'shipping_details' => '\Axerve\Client\Model\Apiv1paymentcreateShippingDetails',
+'order_details' => '\Axerve\Client\Model\OrderDetailsModel',
+'shipping_details' => '\Axerve\Client\Model\ShippingDetailsModel',
 'client_ip' => 'string',
 'currency' => 'string',
 'recurrent' => 'string',
@@ -469,7 +469,7 @@ class Body1 implements ModelInterface, ArrayAccess
     /**
      * Gets order_details
      *
-     * @return \Axerve\Client\Model\Apiv1paymentcreateOrderDetails
+     * @return \Axerve\Client\Model\OrderDetailsModel
      */
     public function getOrderDetails()
     {
@@ -479,7 +479,7 @@ class Body1 implements ModelInterface, ArrayAccess
     /**
      * Sets order_details
      *
-     * @param \Axerve\Client\Model\Apiv1paymentcreateOrderDetails $order_details order_details
+     * @param \Axerve\Client\Model\OrderDetailsModel $order_details order_details
      *
      * @return $this
      */
@@ -493,7 +493,7 @@ class Body1 implements ModelInterface, ArrayAccess
     /**
      * Gets shipping_details
      *
-     * @return \Axerve\Client\Model\Apiv1paymentcreateShippingDetails
+     * @return \Axerve\Client\Model\ShippingDetailsModel
      */
     public function getShippingDetails()
     {
@@ -503,7 +503,7 @@ class Body1 implements ModelInterface, ArrayAccess
     /**
      * Sets shipping_details
      *
-     * @param \Axerve\Client\Model\Apiv1paymentcreateShippingDetails $shipping_details shipping_details
+     * @param \Axerve\Client\Model\ShippingDetailsModel $shipping_details shipping_details
      *
      * @return $this
      */
