@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse2003
+ * InlineResponse2004Payload
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Axerve\Client\ObjectSerializer;
 
 /**
- * InlineResponse2003 Class Doc Comment
+ * InlineResponse2004Payload Class Doc Comment
  *
  * @category Class
  * @package  Axerve\Client
  * @author   Axerve Codegen team
  * @link     https://github.com/axerve-api/axerve-codegen
  */
-class InlineResponse2003 implements ModelInterface, ArrayAccess
+class InlineResponse2004Payload implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $axerveModelName = 'inline_response_200_3';
+    protected static $axerveModelName = 'inline_response_200_4_payload';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,8 +56,9 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $axerveTypes = [
-        'error' => '\Axerve\Client\Model\InlineResponse2001Error',
-'payload' => '\Axerve\Client\Model\InlineResponse2003Payload'    ];
+        'transaction_type' => 'string',
+'transaction_result' => 'string',
+'payment_id' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -65,8 +66,9 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $axerveFormats = [
-        'error' => null,
-'payload' => null    ];
+        'transaction_type' => null,
+'transaction_result' => null,
+'payment_id' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -95,8 +97,9 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'error' => 'error',
-'payload' => 'payload'    ];
+        'transaction_type' => 'transactionType',
+'transaction_result' => 'transactionResult',
+'payment_id' => 'paymentID'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -104,8 +107,9 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'error' => 'setError',
-'payload' => 'setPayload'    ];
+        'transaction_type' => 'setTransactionType',
+'transaction_result' => 'setTransactionResult',
+'payment_id' => 'setPaymentId'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -113,8 +117,9 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'error' => 'getError',
-'payload' => 'getPayload'    ];
+        'transaction_type' => 'getTransactionType',
+'transaction_result' => 'getTransactionResult',
+'payment_id' => 'getPaymentId'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -174,8 +179,9 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
-        $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
+        $this->container['transaction_type'] = isset($data['transaction_type']) ? $data['transaction_type'] : null;
+        $this->container['transaction_result'] = isset($data['transaction_result']) ? $data['transaction_result'] : null;
+        $this->container['payment_id'] = isset($data['payment_id']) ? $data['payment_id'] : null;
     }
 
     /**
@@ -203,49 +209,73 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets error
+     * Gets transaction_type
      *
-     * @return \Axerve\Client\Model\InlineResponse2001Error
+     * @return string
      */
-    public function getError()
+    public function getTransactionType()
     {
-        return $this->container['error'];
+        return $this->container['transaction_type'];
     }
 
     /**
-     * Sets error
+     * Sets transaction_type
      *
-     * @param \Axerve\Client\Model\InlineResponse2001Error $error error
+     * @param string $transaction_type transaction_type
      *
      * @return $this
      */
-    public function setError($error)
+    public function setTransactionType($transaction_type)
     {
-        $this->container['error'] = $error;
+        $this->container['transaction_type'] = $transaction_type;
 
         return $this;
     }
 
     /**
-     * Gets payload
+     * Gets transaction_result
      *
-     * @return \Axerve\Client\Model\InlineResponse2003Payload
+     * @return string
      */
-    public function getPayload()
+    public function getTransactionResult()
     {
-        return $this->container['payload'];
+        return $this->container['transaction_result'];
     }
 
     /**
-     * Sets payload
+     * Sets transaction_result
      *
-     * @param \Axerve\Client\Model\InlineResponse2003Payload $payload payload
+     * @param string $transaction_result transaction_result
      *
      * @return $this
      */
-    public function setPayload($payload)
+    public function setTransactionResult($transaction_result)
     {
-        $this->container['payload'] = $payload;
+        $this->container['transaction_result'] = $transaction_result;
+
+        return $this;
+    }
+
+    /**
+     * Gets payment_id
+     *
+     * @return string
+     */
+    public function getPaymentId()
+    {
+        return $this->container['payment_id'];
+    }
+
+    /**
+     * Sets payment_id
+     *
+     * @param string $payment_id payment_id
+     *
+     * @return $this
+     */
+    public function setPaymentId($payment_id)
+    {
+        $this->container['payment_id'] = $payment_id;
 
         return $this;
     }

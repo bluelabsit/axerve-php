@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse2003
+ * InlineResponse200PayloadLogo
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Axerve\Client\ObjectSerializer;
 
 /**
- * InlineResponse2003 Class Doc Comment
+ * InlineResponse200PayloadLogo Class Doc Comment
  *
  * @category Class
  * @package  Axerve\Client
  * @author   Axerve Codegen team
  * @link     https://github.com/axerve-api/axerve-codegen
  */
-class InlineResponse2003 implements ModelInterface, ArrayAccess
+class InlineResponse200PayloadLogo implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $axerveModelName = 'inline_response_200_3';
+    protected static $axerveModelName = 'inline_response_200_payload_logo';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,8 +56,9 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $axerveTypes = [
-        'error' => '\Axerve\Client\Model\InlineResponse2001Error',
-'payload' => '\Axerve\Client\Model\InlineResponse2003Payload'    ];
+        'large' => 'string',
+'mobile' => 'string',
+'vector' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -65,8 +66,9 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $axerveFormats = [
-        'error' => null,
-'payload' => null    ];
+        'large' => null,
+'mobile' => null,
+'vector' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -95,8 +97,9 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'error' => 'error',
-'payload' => 'payload'    ];
+        'large' => 'large',
+'mobile' => 'mobile',
+'vector' => 'vector'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -104,8 +107,9 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'error' => 'setError',
-'payload' => 'setPayload'    ];
+        'large' => 'setLarge',
+'mobile' => 'setMobile',
+'vector' => 'setVector'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -113,8 +117,9 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'error' => 'getError',
-'payload' => 'getPayload'    ];
+        'large' => 'getLarge',
+'mobile' => 'getMobile',
+'vector' => 'getVector'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -174,8 +179,9 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
-        $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
+        $this->container['large'] = isset($data['large']) ? $data['large'] : null;
+        $this->container['mobile'] = isset($data['mobile']) ? $data['mobile'] : null;
+        $this->container['vector'] = isset($data['vector']) ? $data['vector'] : null;
     }
 
     /**
@@ -187,6 +193,15 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['large'] === null) {
+            $invalidProperties[] = "'large' can't be null";
+        }
+        if ($this->container['mobile'] === null) {
+            $invalidProperties[] = "'mobile' can't be null";
+        }
+        if ($this->container['vector'] === null) {
+            $invalidProperties[] = "'vector' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -203,49 +218,73 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets error
+     * Gets large
      *
-     * @return \Axerve\Client\Model\InlineResponse2001Error
+     * @return string
      */
-    public function getError()
+    public function getLarge()
     {
-        return $this->container['error'];
+        return $this->container['large'];
     }
 
     /**
-     * Sets error
+     * Sets large
      *
-     * @param \Axerve\Client\Model\InlineResponse2001Error $error error
+     * @param string $large large
      *
      * @return $this
      */
-    public function setError($error)
+    public function setLarge($large)
     {
-        $this->container['error'] = $error;
+        $this->container['large'] = $large;
 
         return $this;
     }
 
     /**
-     * Gets payload
+     * Gets mobile
      *
-     * @return \Axerve\Client\Model\InlineResponse2003Payload
+     * @return string
      */
-    public function getPayload()
+    public function getMobile()
     {
-        return $this->container['payload'];
+        return $this->container['mobile'];
     }
 
     /**
-     * Sets payload
+     * Sets mobile
      *
-     * @param \Axerve\Client\Model\InlineResponse2003Payload $payload payload
+     * @param string $mobile mobile
      *
      * @return $this
      */
-    public function setPayload($payload)
+    public function setMobile($mobile)
     {
-        $this->container['payload'] = $payload;
+        $this->container['mobile'] = $mobile;
+
+        return $this;
+    }
+
+    /**
+     * Gets vector
+     *
+     * @return string
+     */
+    public function getVector()
+    {
+        return $this->container['vector'];
+    }
+
+    /**
+     * Sets vector
+     *
+     * @param string $vector vector
+     *
+     * @return $this
+     */
+    public function setVector($vector)
+    {
+        $this->container['vector'] = $vector;
 
         return $this;
     }

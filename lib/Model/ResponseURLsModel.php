@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse2003
+ * Apiv1paymentsubmitResponseURLs
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Axerve\Client\ObjectSerializer;
 
 /**
- * InlineResponse2003 Class Doc Comment
+ * Apiv1paymentsubmitResponseURLs Class Doc Comment
  *
  * @category Class
  * @package  Axerve\Client
  * @author   Axerve Codegen team
  * @link     https://github.com/axerve-api/axerve-codegen
  */
-class InlineResponse2003 implements ModelInterface, ArrayAccess
+class ResponseURLsModel implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $axerveModelName = 'inline_response_200_3';
+    protected static $axerveModelName = 'apiv1paymentsubmit_responseURLs';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,8 +56,9 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $axerveTypes = [
-        'error' => '\Axerve\Client\Model\InlineResponse2001Error',
-'payload' => '\Axerve\Client\Model\InlineResponse2003Payload'    ];
+        'buyer_ko' => 'string',
+'buyer_ok' => 'string',
+'server_notification_url' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -65,8 +66,9 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $axerveFormats = [
-        'error' => null,
-'payload' => null    ];
+        'buyer_ko' => null,
+'buyer_ok' => null,
+'server_notification_url' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -95,8 +97,9 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'error' => 'error',
-'payload' => 'payload'    ];
+        'buyer_ko' => 'buyerKO',
+'buyer_ok' => 'buyerOK',
+'server_notification_url' => 'serverNotificationURL'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -104,8 +107,9 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'error' => 'setError',
-'payload' => 'setPayload'    ];
+        'buyer_ko' => 'setBuyerKo',
+'buyer_ok' => 'setBuyerOk',
+'server_notification_url' => 'setServerNotificationUrl'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -113,8 +117,9 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'error' => 'getError',
-'payload' => 'getPayload'    ];
+        'buyer_ko' => 'getBuyerKo',
+'buyer_ok' => 'getBuyerOk',
+'server_notification_url' => 'getServerNotificationUrl'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -174,8 +179,9 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
-        $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
+        $this->container['buyer_ko'] = isset($data['buyer_ko']) ? $data['buyer_ko'] : null;
+        $this->container['buyer_ok'] = isset($data['buyer_ok']) ? $data['buyer_ok'] : null;
+        $this->container['server_notification_url'] = isset($data['server_notification_url']) ? $data['server_notification_url'] : null;
     }
 
     /**
@@ -203,49 +209,73 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets error
+     * Gets buyer_ko
      *
-     * @return \Axerve\Client\Model\InlineResponse2001Error
+     * @return string
      */
-    public function getError()
+    public function getBuyerKo()
     {
-        return $this->container['error'];
+        return $this->container['buyer_ko'];
     }
 
     /**
-     * Sets error
+     * Sets buyer_ko
      *
-     * @param \Axerve\Client\Model\InlineResponse2001Error $error error
+     * @param string $buyer_ko buyer_ko
      *
      * @return $this
      */
-    public function setError($error)
+    public function setBuyerKo($buyer_ko)
     {
-        $this->container['error'] = $error;
+        $this->container['buyer_ko'] = $buyer_ko;
 
         return $this;
     }
 
     /**
-     * Gets payload
+     * Gets buyer_ok
      *
-     * @return \Axerve\Client\Model\InlineResponse2003Payload
+     * @return string
      */
-    public function getPayload()
+    public function getBuyerOk()
     {
-        return $this->container['payload'];
+        return $this->container['buyer_ok'];
     }
 
     /**
-     * Sets payload
+     * Sets buyer_ok
      *
-     * @param \Axerve\Client\Model\InlineResponse2003Payload $payload payload
+     * @param string $buyer_ok buyer_ok
      *
      * @return $this
      */
-    public function setPayload($payload)
+    public function setBuyerOk($buyer_ok)
     {
-        $this->container['payload'] = $payload;
+        $this->container['buyer_ok'] = $buyer_ok;
+
+        return $this;
+    }
+
+    /**
+     * Gets server_notification_url
+     *
+     * @return string
+     */
+    public function getServerNotificationUrl()
+    {
+        return $this->container['server_notification_url'];
+    }
+
+    /**
+     * Sets server_notification_url
+     *
+     * @param string $server_notification_url server_notification_url
+     *
+     * @return $this
+     */
+    public function setServerNotificationUrl($server_notification_url)
+    {
+        $this->container['server_notification_url'] = $server_notification_url;
 
         return $this;
     }

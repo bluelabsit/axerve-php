@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse2003
+ * InlineResponse2004
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Axerve\Client\ObjectSerializer;
 
 /**
- * InlineResponse2003 Class Doc Comment
+ * InlineResponse2004 Class Doc Comment
  *
  * @category Class
  * @package  Axerve\Client
  * @author   Axerve Codegen team
  * @link     https://github.com/axerve-api/axerve-codegen
  */
-class InlineResponse2003 implements ModelInterface, ArrayAccess
+class InlineResponse2004 implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $axerveModelName = 'inline_response_200_3';
+    protected static $axerveModelName = 'inline_response_200_4';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
       */
     protected static $axerveTypes = [
         'error' => '\Axerve\Client\Model\InlineResponse2001Error',
-'payload' => '\Axerve\Client\Model\InlineResponse2003Payload'    ];
+'payload' => '\Axerve\Client\Model\InlineResponse2004Payload'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -229,7 +229,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
     /**
      * Gets payload
      *
-     * @return \Axerve\Client\Model\InlineResponse2003Payload
+     * @return \Axerve\Client\Model\InlineResponse2004Payload
      */
     public function getPayload()
     {
@@ -239,7 +239,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
     /**
      * Sets payload
      *
-     * @param \Axerve\Client\Model\InlineResponse2003Payload $payload payload
+     * @param \Axerve\Client\Model\InlineResponse2004Payload $payload payload
      *
      * @return $this
      */

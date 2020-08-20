@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse2003
+ * InlineResponse200Error
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Axerve\Client\ObjectSerializer;
 
 /**
- * InlineResponse2003 Class Doc Comment
+ * InlineResponse200Error Class Doc Comment
  *
  * @category Class
  * @package  Axerve\Client
  * @author   Axerve Codegen team
  * @link     https://github.com/axerve-api/axerve-codegen
  */
-class InlineResponse2003 implements ModelInterface, ArrayAccess
+class InlineResponse200Error implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $axerveModelName = 'inline_response_200_3';
+    protected static $axerveModelName = 'inline_response_200_error';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,8 +56,8 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $axerveTypes = [
-        'error' => '\Axerve\Client\Model\InlineResponse2001Error',
-'payload' => '\Axerve\Client\Model\InlineResponse2003Payload'    ];
+        'code' => 'string',
+'description' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -65,8 +65,8 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $axerveFormats = [
-        'error' => null,
-'payload' => null    ];
+        'code' => null,
+'description' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -95,8 +95,8 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'error' => 'error',
-'payload' => 'payload'    ];
+        'code' => 'code',
+'description' => 'description'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -104,8 +104,8 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'error' => 'setError',
-'payload' => 'setPayload'    ];
+        'code' => 'setCode',
+'description' => 'setDescription'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -113,8 +113,8 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'error' => 'getError',
-'payload' => 'getPayload'    ];
+        'code' => 'getCode',
+'description' => 'getDescription'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -174,8 +174,8 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
-        $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
+        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
     }
 
     /**
@@ -203,49 +203,49 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets error
+     * Gets code
      *
-     * @return \Axerve\Client\Model\InlineResponse2001Error
+     * @return string
      */
-    public function getError()
+    public function getCode()
     {
-        return $this->container['error'];
+        return $this->container['code'];
     }
 
     /**
-     * Sets error
+     * Sets code
      *
-     * @param \Axerve\Client\Model\InlineResponse2001Error $error error
+     * @param string $code code
      *
      * @return $this
      */
-    public function setError($error)
+    public function setCode($code)
     {
-        $this->container['error'] = $error;
+        $this->container['code'] = $code;
 
         return $this;
     }
 
     /**
-     * Gets payload
+     * Gets description
      *
-     * @return \Axerve\Client\Model\InlineResponse2003Payload
+     * @return string
      */
-    public function getPayload()
+    public function getDescription()
     {
-        return $this->container['payload'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets payload
+     * Sets description
      *
-     * @param \Axerve\Client\Model\InlineResponse2003Payload $payload payload
+     * @param string $description description
      *
      * @return $this
      */
-    public function setPayload($payload)
+    public function setDescription($description)
     {
-        $this->container['payload'] = $payload;
+        $this->container['description'] = $description;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse2003
+ * Apiv1paymentsubmitPaymentTypeDetails
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Axerve\Client\ObjectSerializer;
 
 /**
- * InlineResponse2003 Class Doc Comment
+ * Apiv1paymentsubmitPaymentTypeDetails Class Doc Comment
  *
  * @category Class
  * @package  Axerve\Client
  * @author   Axerve Codegen team
  * @link     https://github.com/axerve-api/axerve-codegen
  */
-class InlineResponse2003 implements ModelInterface, ArrayAccess
+class PaymentTypeDetailsModel implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $axerveModelName = 'inline_response_200_3';
+    protected static $axerveModelName = 'apiv1paymentsubmit_paymentTypeDetails';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,8 +56,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $axerveTypes = [
-        'error' => '\Axerve\Client\Model\InlineResponse2001Error',
-'payload' => '\Axerve\Client\Model\InlineResponse2003Payload'    ];
+        'creditcard' => '\Axerve\Client\Model\CreditCardDataModel'];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -65,8 +64,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $axerveFormats = [
-        'error' => null,
-'payload' => null    ];
+        'creditcard' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -95,8 +93,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'error' => 'error',
-'payload' => 'payload'    ];
+        'creditcard' => 'creditcard'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -104,8 +101,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'error' => 'setError',
-'payload' => 'setPayload'    ];
+        'creditcard' => 'setCreditcard'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -113,8 +109,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'error' => 'getError',
-'payload' => 'getPayload'    ];
+        'creditcard' => 'getCreditcard'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -174,8 +169,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
-        $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
+        $this->container['creditcard'] = isset($data['creditcard']) ? $data['creditcard'] : null;
     }
 
     /**
@@ -203,49 +197,25 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets error
+     * Gets creditcard
      *
-     * @return \Axerve\Client\Model\InlineResponse2001Error
+     * @return \Axerve\Client\Model\CreditCardDataModel
      */
-    public function getError()
+    public function getCreditcard()
     {
-        return $this->container['error'];
+        return $this->container['creditcard'];
     }
 
     /**
-     * Sets error
+     * Sets creditcard
      *
-     * @param \Axerve\Client\Model\InlineResponse2001Error $error error
+     * @param \Axerve\Client\Model\CreditCardDataModel $creditcard creditcard
      *
      * @return $this
      */
-    public function setError($error)
+    public function setCreditcard($creditcard)
     {
-        $this->container['error'] = $error;
-
-        return $this;
-    }
-
-    /**
-     * Gets payload
-     *
-     * @return \Axerve\Client\Model\InlineResponse2003Payload
-     */
-    public function getPayload()
-    {
-        return $this->container['payload'];
-    }
-
-    /**
-     * Sets payload
-     *
-     * @param \Axerve\Client\Model\InlineResponse2003Payload $payload payload
-     *
-     * @return $this
-     */
-    public function setPayload($payload)
-    {
-        $this->container['payload'] = $payload;
+        $this->container['creditcard'] = $creditcard;
 
         return $this;
     }

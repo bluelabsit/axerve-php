@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse2002PayloadUserRedirectTest
+ * InlineResponse2004PayloadTest
  *
  * PHP version 5
  *
@@ -29,15 +29,15 @@
 namespace Axerve\Client;
 
 /**
- * InlineResponse2002PayloadUserRedirectTest Class Doc Comment
+ * InlineResponse2004PayloadTest Class Doc Comment
  *
  * @category    Class
- * @description InlineResponse2002PayloadUserRedirect
+ * @description InlineResponse2004Payload
  * @package     Axerve\Client
  * @author      Axerve Codegen team
  * @link        https://github.com/axerve-api/axerve-codegen
  */
-class InlineResponse2002PayloadUserRedirectTest extends \PHPUnit_Framework_TestCase
+class InlineResponse2004PayloadTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -69,16 +69,30 @@ class InlineResponse2002PayloadUserRedirectTest extends \PHPUnit_Framework_TestC
     }
 
     /**
-     * Test "InlineResponse2002PayloadUserRedirect"
+     * Test "InlineResponse2004Payload"
      */
-    public function testInlineResponse2002PayloadUserRedirect()
+    public function testInlineResponse2004Payload()
     {
     }
 
     /**
-     * Test attribute "href"
+     * Test attribute "transaction_type"
      */
-    public function testPropertyHref()
+    public function testPropertyTransactionType()
+    {
+    }
+
+    /**
+     * Test attribute "transaction_result"
+     */
+    public function testPropertyTransactionResult()
+    {
+    }
+
+    /**
+     * Test attribute "payment_id"
+     */
+    public function testPropertyPaymentId()
     {
     }
 }

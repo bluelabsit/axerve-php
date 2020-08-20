@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse2002PayloadUserRedirectTest
+ * InlineResponse200ErrorTest
  *
  * PHP version 5
  *
@@ -29,15 +29,15 @@
 namespace Axerve\Client;
 
 /**
- * InlineResponse2002PayloadUserRedirectTest Class Doc Comment
+ * InlineResponse200ErrorTest Class Doc Comment
  *
  * @category    Class
- * @description InlineResponse2002PayloadUserRedirect
+ * @description InlineResponse200Error
  * @package     Axerve\Client
  * @author      Axerve Codegen team
  * @link        https://github.com/axerve-api/axerve-codegen
  */
-class InlineResponse2002PayloadUserRedirectTest extends \PHPUnit_Framework_TestCase
+class InlineResponse200ErrorTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -69,16 +69,23 @@ class InlineResponse2002PayloadUserRedirectTest extends \PHPUnit_Framework_TestC
     }
 
     /**
-     * Test "InlineResponse2002PayloadUserRedirect"
+     * Test "InlineResponse200Error"
      */
-    public function testInlineResponse2002PayloadUserRedirect()
+    public function testInlineResponse200Error()
     {
     }
 
     /**
-     * Test attribute "href"
+     * Test attribute "code"
      */
-    public function testPropertyHref()
+    public function testPropertyCode()
+    {
+    }
+
+    /**
+     * Test attribute "description"
+     */
+    public function testPropertyDescription()
     {
     }
 }

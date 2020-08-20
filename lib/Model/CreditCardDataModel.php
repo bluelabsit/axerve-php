@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse2003
+ * Apiv1paymentsubmitPaymentTypeDetailsCreditcard
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Axerve\Client\ObjectSerializer;
 
 /**
- * InlineResponse2003 Class Doc Comment
+ * Apiv1paymentsubmitPaymentTypeDetailsCreditcard Class Doc Comment
  *
  * @category Class
  * @package  Axerve\Client
  * @author   Axerve Codegen team
  * @link     https://github.com/axerve-api/axerve-codegen
  */
-class InlineResponse2003 implements ModelInterface, ArrayAccess
+class CreditCardDataModel implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $axerveModelName = 'inline_response_200_3';
+    protected static $axerveModelName = 'apiv1paymentsubmit_paymentTypeDetails_creditcard';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,8 +56,12 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $axerveTypes = [
-        'error' => '\Axerve\Client\Model\InlineResponse2001Error',
-'payload' => '\Axerve\Client\Model\InlineResponse2003Payload'    ];
+        'number' => 'string',
+'exp_month' => 'string',
+'cvv' => 'string',
+'exp_year' => 'string',
+'dcc' => 'string',
+'request_token' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -65,8 +69,12 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $axerveFormats = [
-        'error' => null,
-'payload' => null    ];
+        'number' => null,
+'exp_month' => null,
+'cvv' => null,
+'exp_year' => null,
+'dcc' => null,
+'request_token' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -95,8 +103,12 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'error' => 'error',
-'payload' => 'payload'    ];
+        'number' => 'number',
+'exp_month' => 'expMonth',
+'cvv' => 'CVV',
+'exp_year' => 'expYear',
+'dcc' => 'DCC',
+'request_token' => 'requestToken'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -104,8 +116,12 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'error' => 'setError',
-'payload' => 'setPayload'    ];
+        'number' => 'setNumber',
+'exp_month' => 'setExpMonth',
+'cvv' => 'setCvv',
+'exp_year' => 'setExpYear',
+'dcc' => 'setDcc',
+'request_token' => 'setRequestToken'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -113,8 +129,12 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'error' => 'getError',
-'payload' => 'getPayload'    ];
+        'number' => 'getNumber',
+'exp_month' => 'getExpMonth',
+'cvv' => 'getCvv',
+'exp_year' => 'getExpYear',
+'dcc' => 'getDcc',
+'request_token' => 'getRequestToken'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -174,8 +194,12 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
-        $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
+        $this->container['number'] = isset($data['number']) ? $data['number'] : null;
+        $this->container['exp_month'] = isset($data['exp_month']) ? $data['exp_month'] : null;
+        $this->container['cvv'] = isset($data['cvv']) ? $data['cvv'] : null;
+        $this->container['exp_year'] = isset($data['exp_year']) ? $data['exp_year'] : null;
+        $this->container['dcc'] = isset($data['dcc']) ? $data['dcc'] : null;
+        $this->container['request_token'] = isset($data['request_token']) ? $data['request_token'] : null;
     }
 
     /**
@@ -203,49 +227,145 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets error
+     * Gets number
      *
-     * @return \Axerve\Client\Model\InlineResponse2001Error
+     * @return string
      */
-    public function getError()
+    public function getNumber()
     {
-        return $this->container['error'];
+        return $this->container['number'];
     }
 
     /**
-     * Sets error
+     * Sets number
      *
-     * @param \Axerve\Client\Model\InlineResponse2001Error $error error
+     * @param string $number number
      *
      * @return $this
      */
-    public function setError($error)
+    public function setNumber($number)
     {
-        $this->container['error'] = $error;
+        $this->container['number'] = $number;
 
         return $this;
     }
 
     /**
-     * Gets payload
+     * Gets exp_month
      *
-     * @return \Axerve\Client\Model\InlineResponse2003Payload
+     * @return string
      */
-    public function getPayload()
+    public function getExpMonth()
     {
-        return $this->container['payload'];
+        return $this->container['exp_month'];
     }
 
     /**
-     * Sets payload
+     * Sets exp_month
      *
-     * @param \Axerve\Client\Model\InlineResponse2003Payload $payload payload
+     * @param string $exp_month exp_month
      *
      * @return $this
      */
-    public function setPayload($payload)
+    public function setExpMonth($exp_month)
     {
-        $this->container['payload'] = $payload;
+        $this->container['exp_month'] = $exp_month;
+
+        return $this;
+    }
+
+    /**
+     * Gets cvv
+     *
+     * @return string
+     */
+    public function getCvv()
+    {
+        return $this->container['cvv'];
+    }
+
+    /**
+     * Sets cvv
+     *
+     * @param string $cvv cvv
+     *
+     * @return $this
+     */
+    public function setCvv($cvv)
+    {
+        $this->container['cvv'] = $cvv;
+
+        return $this;
+    }
+
+    /**
+     * Gets exp_year
+     *
+     * @return string
+     */
+    public function getExpYear()
+    {
+        return $this->container['exp_year'];
+    }
+
+    /**
+     * Sets exp_year
+     *
+     * @param string $exp_year exp_year
+     *
+     * @return $this
+     */
+    public function setExpYear($exp_year)
+    {
+        $this->container['exp_year'] = $exp_year;
+
+        return $this;
+    }
+
+    /**
+     * Gets dcc
+     *
+     * @return string
+     */
+    public function getDcc()
+    {
+        return $this->container['dcc'];
+    }
+
+    /**
+     * Sets dcc
+     *
+     * @param string $dcc dcc
+     *
+     * @return $this
+     */
+    public function setDcc($dcc)
+    {
+        $this->container['dcc'] = $dcc;
+
+        return $this;
+    }
+
+    /**
+     * Gets request_token
+     *
+     * @return string
+     */
+    public function getRequestToken()
+    {
+        return $this->container['request_token'];
+    }
+
+    /**
+     * Sets request_token
+     *
+     * @param string $request_token request_token
+     *
+     * @return $this
+     */
+    public function setRequestToken($request_token)
+    {
+        $this->container['request_token'] = $request_token;
 
         return $this;
     }

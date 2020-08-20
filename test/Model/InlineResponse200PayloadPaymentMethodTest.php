@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse2002PayloadUserRedirectTest
+ * InlineResponse200PayloadPaymentMethodTest
  *
  * PHP version 5
  *
@@ -29,15 +29,15 @@
 namespace Axerve\Client;
 
 /**
- * InlineResponse2002PayloadUserRedirectTest Class Doc Comment
+ * InlineResponse200PayloadPaymentMethodTest Class Doc Comment
  *
  * @category    Class
- * @description InlineResponse2002PayloadUserRedirect
+ * @description InlineResponse200PayloadPaymentMethod
  * @package     Axerve\Client
  * @author      Axerve Codegen team
  * @link        https://github.com/axerve-api/axerve-codegen
  */
-class InlineResponse2002PayloadUserRedirectTest extends \PHPUnit_Framework_TestCase
+class InlineResponse200PayloadPaymentMethodTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -69,16 +69,37 @@ class InlineResponse2002PayloadUserRedirectTest extends \PHPUnit_Framework_TestC
     }
 
     /**
-     * Test "InlineResponse2002PayloadUserRedirect"
+     * Test "InlineResponse200PayloadPaymentMethod"
      */
-    public function testInlineResponse2002PayloadUserRedirect()
+    public function testInlineResponse200PayloadPaymentMethod()
     {
     }
 
     /**
-     * Test attribute "href"
+     * Test attribute "name"
      */
-    public function testPropertyHref()
+    public function testPropertyName()
+    {
+    }
+
+    /**
+     * Test attribute "logo"
+     */
+    public function testPropertyLogo()
+    {
+    }
+
+    /**
+     * Test attribute "payment_type"
+     */
+    public function testPropertyPaymentType()
+    {
+    }
+
+    /**
+     * Test attribute "payment_page"
+     */
+    public function testPropertyPaymentPage()
     {
     }
 }

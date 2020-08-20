@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse2003
+ * InlineResponse200PayloadPaymentMethod
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Axerve\Client\ObjectSerializer;
 
 /**
- * InlineResponse2003 Class Doc Comment
+ * InlineResponse200PayloadPaymentMethod Class Doc Comment
  *
  * @category Class
  * @package  Axerve\Client
  * @author   Axerve Codegen team
  * @link     https://github.com/axerve-api/axerve-codegen
  */
-class InlineResponse2003 implements ModelInterface, ArrayAccess
+class InlineResponse200PayloadPaymentMethod implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $axerveModelName = 'inline_response_200_3';
+    protected static $axerveModelName = 'inline_response_200_payload_paymentMethod';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,8 +56,10 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $axerveTypes = [
-        'error' => '\Axerve\Client\Model\InlineResponse2001Error',
-'payload' => '\Axerve\Client\Model\InlineResponse2003Payload'    ];
+        'name' => 'string',
+'logo' => '\Axerve\Client\Model\InlineResponse200PayloadLogo',
+'payment_type' => 'string',
+'payment_page' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -65,8 +67,10 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $axerveFormats = [
-        'error' => null,
-'payload' => null    ];
+        'name' => null,
+'logo' => null,
+'payment_type' => null,
+'payment_page' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -95,8 +99,10 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'error' => 'error',
-'payload' => 'payload'    ];
+        'name' => 'name',
+'logo' => 'logo',
+'payment_type' => 'paymentType',
+'payment_page' => 'paymentPage'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -104,8 +110,10 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'error' => 'setError',
-'payload' => 'setPayload'    ];
+        'name' => 'setName',
+'logo' => 'setLogo',
+'payment_type' => 'setPaymentType',
+'payment_page' => 'setPaymentPage'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -113,8 +121,10 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'error' => 'getError',
-'payload' => 'getPayload'    ];
+        'name' => 'getName',
+'logo' => 'getLogo',
+'payment_type' => 'getPaymentType',
+'payment_page' => 'getPaymentPage'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -174,8 +184,10 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
-        $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['logo'] = isset($data['logo']) ? $data['logo'] : null;
+        $this->container['payment_type'] = isset($data['payment_type']) ? $data['payment_type'] : null;
+        $this->container['payment_page'] = isset($data['payment_page']) ? $data['payment_page'] : null;
     }
 
     /**
@@ -203,49 +215,97 @@ class InlineResponse2003 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets error
+     * Gets name
      *
-     * @return \Axerve\Client\Model\InlineResponse2001Error
+     * @return string
      */
-    public function getError()
+    public function getName()
     {
-        return $this->container['error'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets error
+     * Sets name
      *
-     * @param \Axerve\Client\Model\InlineResponse2001Error $error error
+     * @param string $name name
      *
      * @return $this
      */
-    public function setError($error)
+    public function setName($name)
     {
-        $this->container['error'] = $error;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets payload
+     * Gets logo
      *
-     * @return \Axerve\Client\Model\InlineResponse2003Payload
+     * @return \Axerve\Client\Model\InlineResponse200PayloadLogo
      */
-    public function getPayload()
+    public function getLogo()
     {
-        return $this->container['payload'];
+        return $this->container['logo'];
     }
 
     /**
-     * Sets payload
+     * Sets logo
      *
-     * @param \Axerve\Client\Model\InlineResponse2003Payload $payload payload
+     * @param \Axerve\Client\Model\InlineResponse200PayloadLogo $logo logo
      *
      * @return $this
      */
-    public function setPayload($payload)
+    public function setLogo($logo)
     {
-        $this->container['payload'] = $payload;
+        $this->container['logo'] = $logo;
+
+        return $this;
+    }
+
+    /**
+     * Gets payment_type
+     *
+     * @return string
+     */
+    public function getPaymentType()
+    {
+        return $this->container['payment_type'];
+    }
+
+    /**
+     * Sets payment_type
+     *
+     * @param string $payment_type payment_type
+     *
+     * @return $this
+     */
+    public function setPaymentType($payment_type)
+    {
+        $this->container['payment_type'] = $payment_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets payment_page
+     *
+     * @return string
+     */
+    public function getPaymentPage()
+    {
+        return $this->container['payment_page'];
+    }
+
+    /**
+     * Sets payment_page
+     *
+     * @param string $payment_page payment_page
+     *
+     * @return $this
+     */
+    public function setPaymentPage($payment_page)
+    {
+        $this->container['payment_page'] = $payment_page;
 
         return $this;
     }
