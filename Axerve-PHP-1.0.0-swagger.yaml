@@ -1,0 +1,1484 @@
+openapi: 3.0.1
+info:
+  title: Axerve-php
+  description: Axerve API client made for PHP
+  version: 1.0.0
+servers:
+  - url: 'https://sandbox.gestpay.net'
+  - url: 'https://ecomms2s.sella.it'
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+paths:
+  /api/v1/shop/methods/{shopLogin}:
+    get:
+      description: Auto generated using Swagger Inspector
+      security:
+        - ApiKeyAuth: []
+      parameters: 
+        - name: shopLogin
+          in: path
+          schema:
+            type: string
+          required: true
+          example: GESPAY80790
+      responses:
+        '200':
+          description: Auto generated using Swagger Inspector
+          content:
+            text/json; charset=utf-8:
+              schema:
+                properties: 
+                  error: 
+                    properties: 
+                      code: 
+                        type: "string"
+                        example: "0"
+                      description: 
+                        type: "string"
+                        example: "request correctly processed"
+                    type: "object"
+                  payload: 
+                    properties: 
+                      paymentMethod: 
+                        type: "array"
+                        items: 
+                          type: "object"
+                          properties: 
+                            name: 
+                              type: "string"
+                              example: "VISA VBV"
+                            logo: 
+                              required: 
+                                - "large"
+                                - "mobile"
+                                - "vector"
+                              properties: 
+                                large: 
+                                  type: "string"
+                                  example: "https://sandbox.gestpay.net/MerchantAxervice/images/vetro1.png"
+                                mobile: 
+                                  type: "string"
+                                  example: "https://sandbox.gestpay.net/MerchantAxervice/images/vetro1.png"
+                                vector: 
+                                  type: "string"
+                                  example: "https://sandbox.gestpay.net/MerchantAxervice/images/Visa.svg"
+                              type: "object"
+                            paymentType: 
+                              type: "string"
+                              example: "CREDITCARD"
+                            paymentPage: 
+                              type: "string"
+                              example: "visible"
+                type: "object"
+              examples: 
+                'Success 200':
+                  value: |-
+                    {
+                      "error": {
+                        "code": "0",
+                        "description": "request correctly processed"
+                      },
+                      "payload": {
+                        "paymentMethod": [
+                          {
+                            "name": "VISA VBV",
+                            "logo": {
+                              "large": "https://sandbox.gestpay.net/MerchantAxervice/images/vetro1.png",
+                              "mobile": "https://sandbox.gestpay.net/MerchantAxervice/images/vetro1.png",
+                              "vector": "https://sandbox.gestpay.net/MerchantAxervice/images/Visa.svg"
+                            },
+                            "paymentType": "CREDITCARD",
+                            "paymentPage": "visible"
+                          },
+                          {
+                            "name": "Mastercard SecureCode",
+                            "logo": {
+                              "large": "https://sandbox.gestpay.net/MerchantAxervice/images/vetro2.gif",
+                              "mobile": "https://sandbox.gestpay.net/MerchantAxervice/images/vetro2.gif",
+                              "vector": "https://sandbox.gestpay.net/MerchantAxervice/images/Mastercard.svg"
+                            },
+                            "paymentType": "CREDITCARD",
+                            "paymentPage": "visible"
+                          }
+                        ]
+                      }
+                    }
+      servers:
+        - url: 'https://sandbox.gestpay.net'        
+      tags:
+        - Payment        
+    servers:
+      - url: 'https://sandbox.gestpay.net'
+  /api/v1/check/creditCard/:
+    post:
+      description: Auto generated using Swagger Inspector
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                shopTransactionID:
+                  type: string
+                withAuth:
+                  type: string
+                creditcard:
+                  type: object
+                  properties:
+                    number:
+                      type: string
+                    expMonth:
+                      type: string
+                    CVV:
+                      type: string
+                    expYear:
+                      type: string
+                shopLogin:
+                  type: string
+            examples:
+              '0':
+                value: "{\n\t\"shopLogin\": \"GESPAY80790\",\n\t\"shopTransactionID\": \"TSKEL1235\",\n\t\"withAuth\": \"true\",\n\t\"creditcard\": {\n\t\t\"number\": \"5412388800004012\",\n\t\t\"expMonth\": \"05\",\n\t\t\"expYear\": \"27\",\n\t\t\"CVV\": \"123\"\n\t}\n}"
+      responses:
+        '200':
+          description: Auto generated using Swagger Inspector
+          content:
+            text/json; charset=utf-8:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: object
+                    properties:
+                      code: 
+                        type: string
+                      description: 
+                        type: string
+                  payload: 
+                    type: object
+                    properties:
+                      transactionType: 
+                        type: string
+                      transactionResult: 
+                        type: string
+                      authorizationResult: 
+                        type: string
+                      authorizationErrorCode: 
+                        type: string
+                      authorizationCodeDescription: 
+                        type: string
+                      country: 
+                        type: string
+                      countryCode: 
+                        type: string
+                      cvv": 
+                        type: string
+                      cvvDescription: 
+                        type: string
+                      issuerCountry: 
+                        type: string
+                      issuerCountryCode: 
+                        type: string
+                      company: 
+                        type: string
+                      companyCode: 
+                        type: string
+                      commercial: 
+                        type: string
+                      productDescription: 
+                        type: string
+                      productType: 
+                        type: string
+                      checkDigit: 
+                        type: string
+                      checkDigitDescription: 
+                        type: string
+                      expiryDate": 
+                        type: string
+                      expiryDateDescription: 
+                        type: string
+                      3DS": 
+                        type: string
+                      3DSDescription: 
+                        type: string
+                      prepaid: 
+                        type: string
+              examples: 
+                "Success": 
+                  value: |-
+                    {
+                      "error": {
+                        "code": "0",
+                        "description": "request correctly processed"
+                      },
+                      "payload": {
+                        "transactionType": "creditcard",
+                        "transactionResult": "OK",
+                        "authorizationResult": "OK",
+                        "authorizationErrorCode": "0",
+                        "authorizationCodeDescription": "Transaction correctly processed",
+                        "country": "ITALIA",
+                        "countryCode": "380",
+                        "cvv": "OK",
+                        "cvvDescription": "CVV VALID",
+                        "issuerCountry": "ITALIA",
+                        "issuerCountryCode": "380",
+                        "company": "MASTERCARD",
+                        "companyCode": "3",
+                        "commercial": "N",
+                        "productDescription": "Standard MasterCard® Card",
+                        "productType": "Credit",
+                        "checkDigit": "OK",
+                        "checkDigitDescription": "CheckDigit VALID",
+                        "expiryDate": "OK",
+                        "expiryDateDescription": "DATE VALID",
+                        "3DS": "Y",
+                        "3DSDescription": "ENROLLED",
+                        "prepaid": "Y"
+                      }
+                    }
+                "Error 403": 
+                  value: |-
+                    {
+                      'error': {
+                        'code': '1171',
+                        'description': 'missing authentication header'
+                      },
+                      'payload': {}
+                    }
+      servers:
+        - url: 'https://sandbox.gestpay.net'
+      tags:
+        - Payment
+    servers:
+      - url: 'https://sandbox.gestpay.net'
+  /api/v1/payment/create:
+    post:
+      description: Auto generated using Swagger Inspector
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                amount:
+                  type: string
+                itemType:
+                  type: string
+                buyerEmail:
+                  type: string
+                languageId:
+                  type: integer
+                buyerName:
+                  type: string
+                paymentChannel:
+                  type: object
+                  properties:
+                    channelType:
+                      type: array
+                      items:
+                        type: string
+                paymentType:
+                  type: array
+                  items:
+                    type: string
+                shopTransactionID:
+                  type: string
+                orderDetails:
+                  type: object
+                  properties:
+                    customerDetail:
+                      type: object
+                      properties:
+                        firstName:
+                          type: string
+                        createdAtDate:
+                          type: string
+                        mobilePhone:
+                          type: string
+                        gender:
+                          type: integer
+                        socialSecurityNumber:
+                          type: string
+                        homePhone:
+                          type: string
+                        middleName:
+                          type: string
+                        company:
+                          type: string
+                        primaryEmail:
+                          type: string
+                        lastname:
+                          type: string
+                        verifiedEmail:
+                          type: string
+                    shippingAddress:
+                      type: object
+                      properties:
+                        houseExtention:
+                          type: string
+                        zipCode:
+                          type: string
+                        city:
+                          type: string
+                        houseNumber:
+                          type: string
+                        lastname:
+                          type: string
+                        firstName:
+                          type: string
+                        primaryPhone:
+                          type: string
+                        streetName:
+                          type: string
+                        streetname2:
+                          type: string
+                        countryCode:
+                          type: string
+                        middleName:
+                          type: string
+                        stateCode:
+                          type: string
+                        state:
+                          type: string
+                        email:
+                          type: string
+                        secondaryPhone:
+                          type: string
+                    billingAddress:
+                      type: object
+                      properties:
+                        houseExtention:
+                          type: string
+                        zipCode:
+                          type: string
+                        city:
+                          type: string
+                        houseNumber:
+                          type: string
+                        lastname:
+                          type: string
+                        firstName:
+                          type: string
+                        primaryPhone:
+                          type: string
+                        streetName:
+                          type: string
+                        streetname2:
+                          type: string
+                        countryCode:
+                          type: string
+                        middleName:
+                          type: string
+                        stateCode:
+                          type: string
+                        state:
+                          type: string
+                        email:
+                          type: string
+                        secondaryPhone:
+                          type: string
+                shippingDetails:
+                  type: object
+                  properties:
+                    shipToZip:
+                      type: string
+                    shipToStreet2:
+                      type: string
+                    shipToCountryCode:
+                      type: string
+                    shipToName:
+                      type: string
+                    shipToStreet:
+                      type: string
+                    shipToState:
+                      type: string
+                clientIP:
+                  type: string
+                currency:
+                  type: string
+                recurrent:
+                  type: string
+                shopLogin:
+                  type: string
+            examples:
+              '0':
+                value: |-
+                  {
+                      "shopLogin": "GESPAY80790",
+                      "amount": "72.5",
+                      "currency": "EUR",
+                      "shopTransactionID": "TSKEL1235",
+                      "buyerName": "John Smith",
+                      "buyerEmail": "jota0222@hotmail.com",
+                      "languageId": 2,
+                      "paymentChannel": {
+                          "channelType": [
+                              "EMAIL"
+                          ]
+                      },
+                      "clientIP": "127.0.0.1",
+                      "itemType": "physical",
+                      "recurrent": "false",
+                      "paymentType": [
+                          "CREDITCARD"
+                      ],
+                      "shippingDetails": {
+                          "shipToName": "John Smith",
+                          "shipToStreet": "Av 9ST",
+                          "shipToState": "BS",
+                          "shipToCountryCode": "IT",
+                          "shipToZip": "25121",
+                          "shipToStreet2": ""
+                      },
+                      "orderDetails": {
+                          "customerDetail": {
+                              "firstName": "John",
+                              "middleName": "Sebastian",
+                              "lastname": "Smith",
+                              "primaryEmail": "jota0222@hotmail.com",
+                              "homePhone": "+573137621213",
+                              "mobilePhone": "+573137621213",
+                              "gender": 0,
+                              "socialSecurityNumber": "",
+                              "company": "",
+                              "createdAtDate": "2020-07-20",
+                              "verifiedEmail": "jota0222@hotmail.com"
+                          },
+                          "shippingAddress": {
+                              "firstName": "Johana",
+                              "middleName": "",
+                              "lastname": "Smith",
+                              "streetName": "Av 20ST",
+                              "streetname2": "",
+                              "houseNumber": "10",
+                              "houseExtention": "30",
+                              "city": "italy",
+                              "zipCode": "25121",
+                              "state": "BS",
+                              "countryCode": "IT",
+                              "email": "jota0222@hotmail.com",
+                              "primaryPhone": "+573137621213",
+                              "secondaryPhone": "+57573137621213",
+                              "stateCode": "BS"
+                          },
+                          "billingAddress": {
+                              "firstName": "Johana",
+                              "middleName": "",
+                              "lastname": "Smith",
+                              "streetName": "Av 20ST",
+                              "streetname2": "",
+                              "houseNumber": "10",
+                              "houseExtention": "30",
+                              "city": "italy",
+                              "zipCode": "25121",
+                              "state": "BS",
+                              "countryCode": "IT",
+                              "email": "jota0222@hotmail.com",
+                              "primaryPhone": "+573137621213",
+                              "secondaryPhone": "+57573137621213",
+                              "stateCode": "BS"
+                          } 
+                      }
+                  }
+      responses:
+        '200':
+          description: Auto generated using Swagger Inspector
+          content:
+            text/json; charset=utf-8:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: object
+                    properties:
+                      code:
+                        type: string
+                      description:
+                        type: string
+                  payload:
+                    type: object
+                    properties:
+                      paymentToken:
+                        type: string
+                      paymentID:
+                        type: string
+                      userRedirect:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+              examples: 
+                "Success": 
+                  value: |-
+                    {
+                      "error": {
+                          "code": "0",
+                          "description": "request correctly processed"
+                      },
+                      "payload": {
+                        "paymentToken": "a7d3cb40-b610-4e90-a7f6-6a0eb5dcc7a0",
+                        "paymentID": "146972136693",
+                        "userRedirect": {
+                          "href": "https://sandbox.gestpay.net/pagam/src/index.html?paymentID=146972136693&paymentToken=a7d3cb40-b610-4e90-a7f6-6a0eb5dcc7a0&shopLogin=GESPAY80790&lightbox=false"
+                        }
+                      }
+                    }
+      servers:
+        - url: 'https://sandbox.gestpay.net'
+      tags:
+        - Payment
+    servers:
+      - url: 'https://sandbox.gestpay.net'
+  /api/v1/payment/detail/{paymentId}:
+    get:
+      description: None
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - name: paymentId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: 179315136319
+      responses:
+        '200':
+          description: none
+          content:
+            text/json; charset=utf-8:
+              schema:
+                type: object
+                properties:
+                  error: 
+                    properties: 
+                      code: 
+                        type: "string"
+                      description: 
+                        type: "string"
+                    type: "object"
+                  payload: 
+                    properties: 
+                      transactionType: 
+                        type: "string"
+                      transactionResult: 
+                        type: "string"
+                      transactionState: 
+                        type: "string"
+                      bankTransactionID: 
+                        type: "string"
+                      shopTransactionID: 
+                        type: "string"
+                      authorizationCode: 
+                        type: "string"
+                      paymentID: 
+                        type: "string"
+                      currency: 
+                        type: "string"
+                      country: 
+                        type: "string"
+                      company: 
+                        type: "string"
+                      tdLevel: 
+                        type: "string"
+                      events: 
+                        type: "array"
+                        items: 
+                          type: "object"
+                          properties: 
+                            eventtype: 
+                              type: "string"
+                            eventamount: 
+                              type: "string"
+                            eventdate: 
+                              type: "string"
+                            eventARN: 
+                              type: "string"
+                            eventID: 
+                              type: "string"
+                      buyer: 
+                        properties: 
+                          name: 
+                            type: "string"
+                          email: 
+                            type: "string"
+                        type: "object"
+                      risk: 
+                        properties: 
+                          riskResponseCode: 
+                            type: "string"
+                          riskResponseDescription: 
+                            type: "string"
+                        type: "object"
+                      customInfo: 
+                        type: "object"
+                      alertCode: 
+                        type: "string"
+                      alertDescription: 
+                        type: "string"
+                      cvvPresent: 
+                        type: "string"
+                      dcc: 
+                        properties: 
+                          eligible: 
+                            type: "string"
+                          currency: 
+                            type: "string"
+                        type: "object"
+                      maskedPAN: 
+                        type: "string"
+                      paymentMethod: 
+                        type: "string"
+                      productType: 
+                        type: "string"
+                      token: 
+                        type: "string"
+                      tokenExpiryMonth: 
+                        type: "string"
+                      tokenExpiryYear: 
+                        type: "string"
+                      vbv: 
+                        properties: 
+                          flag: 
+                            type: "string"
+                          buyer: 
+                            type: "string"
+                        type: "object"
+                      payPalFee: 
+                        type: "string"
+                      fraudPrevention: 
+                        properties: 
+                          check: 
+                            type: "string"
+                          state: 
+                            type: "string"
+                          description: 
+                            type: "string"
+                          order: 
+                            type: "string"
+                        type: "object"
+                      automaticOperation: 
+                        properties: 
+                          type: 
+                            type: "string"
+                          date: 
+                            type: "string"
+                          amount: 
+                            type: "string"
+                        type: "object"
+                    type: "object"
+              examples:
+                success:
+                  value: |-
+                    {
+                      "error": {
+                        "code": "0",
+                        "description": "request correctly processed"
+                      },
+                      "payload": {
+                        "transactionType": "detail",
+                        "transactionResult": "OK",
+                        "transactionState": "MOV",
+                        "bankTransactionID": "11111",
+                        "shopTransactionID": "myShopTransactionID",
+                        "authorizationCode": "0010202",
+                        "paymentID": "00000000001",
+                        "currency": "EUR",
+                        "country": "ITALIA",
+                        "company": "MASTERCARD SECURECODE",
+                        "tdLevel": "FULL",
+                        "events": [
+                          {
+                            "eventtype": "AUT",
+                            "eventamount": "0.10",
+                            "eventdate": "19/08/16 16:13:14",
+                            "eventARN": "",
+                            "eventID": ""
+                          },
+                          {
+                            "eventtype": "MOV",
+                            "eventamount": "0.10",
+                            "eventdate": "20/08/16 00:13:57",
+                            "eventARN": "",
+                            "eventID": ""
+                          }
+                        ],
+                        "buyer": {
+                          "name": "",
+                          "email": ""
+                        },
+                        "risk": {
+                          "riskResponseCode": "approved",
+                          "riskResponseDescription": ""
+                        },
+                        "customInfo": {
+                          "{myCustomInfo1}": "{myCustomInfoValue1}",
+                          "{myCustomInfo2}": "{myCustomInfoValue2}"
+                        },
+                        "alertCode": "",
+                        "alertDescription": "",
+                        "cvvPresent": "{TRUE/FALSE}",
+                        "dcc": {
+                          "eligible": "{TRUE/FALSE}",
+                          "currency": ""
+                        },
+                        "maskedPAN": "",
+                        "paymentMethod": "",
+                        "productType": "",
+                        "token": "",
+                        "tokenExpiryMonth": "",
+                        "tokenExpiryYear": "",
+                        "vbv": {
+                          "flag": "",
+                          "buyer": ""
+                        },
+                        "payPalFee": "",
+                        "fraudPrevention": {
+                          "check": "{TRUE/FALSE}",
+                          "state": "",
+                          "description": "",
+                          "order": ""
+                        },
+                        "automaticOperation": {
+                          "type": "",
+                          "date": "",
+                          "amount": ""
+                        }
+                      }
+                    }
+      servers:
+        - url: 'https://sandbox.gestpay.net'
+        - url: 'https://ecomms2s.sella.it'
+      tags:
+        - Payment
+    servers:
+      - url: 'https://sandbox.gestpay.net'
+      - url: 'https://ecomms2s.sella.it'
+  /api/v1/payment/methods/{paymentId}/{languageId}:
+    get:
+      description: Auto generated using Swagger Inspector
+      parameters:
+        - name: paymentId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: 179315136319
+        - name: languageId
+          in: path
+          schema:
+            type: string
+          required: true
+          example: 2
+        - name: paymentToken
+          in: header
+          schema:
+            type: string
+          example: e9d26343-1904-4f2d-8c37-3a53f2297f93
+      responses:
+        '200':
+          description: Auto generated using Swagger Inspector
+          content:
+            text/json; charset=utf-8:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: object
+                    properties:
+                      code: 
+                        type: string
+                      description:
+                        type: string
+                  payload:
+                    type: object
+                    properties:
+                      paymentMethod:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            ID: 
+                              type: string
+                            name: 
+                              type: string
+                            logo:
+                              type: object
+                              properties:
+                                large: 
+                                  type: string
+                                mobile: 
+                                  type: string
+                                vector: 
+                                  type: string
+                            paymentType: 
+                              type: string
+                            paymentTypeDetail:
+                              type: object
+                              properties:
+                                href:
+                                  type: string
+                            userRedirect:
+                              type: object
+                              properties:
+                                href:
+                                  type: string
+                      paymentID:
+                       type: string
+              examples: 
+                success: 
+                  value: |-
+                    {
+                      "error": {
+                        "code": "0",
+                        "description": "request correctly processed"
+                      },
+                      "payload": {
+                        "paymentMethod": [
+                          {
+                            "ID": "5",
+                            "name": "VISA VBV",
+                            "logo": {
+                              "large": "https://sandbox.gestpay.net/Axervice/images/lightbox/vetro1.png",
+                              "mobile": "https://sandbox.gestpay.net/Axervice/images/lightbox/vetro1.png",
+                              "vector": "https://sandbox.gestpay.net/Axervice/images/lightbox/Visa.svg"
+                            },
+                            "paymentType": "CREDITCARD",
+                            "paymentTypeDetail": {
+                              "href": ""
+                            },
+                            "userRedirect": {
+                              "href": ""
+                            }
+                          },
+                          {
+                            "ID": "6",
+                            "name": "Mastercard SecureCode",
+                            "logo": {
+                              "large": "https://sandbox.gestpay.net/Axervice/images/lightbox/vetro2.gif",
+                              "mobile": "https://sandbox.gestpay.net/Axervice/images/lightbox/vetro2.gif",
+                              "vector": "https://sandbox.gestpay.net/Axervice/images/lightbox/Mastercard.svg"
+                            },
+                            "paymentType": "CREDITCARD",
+                            "paymentTypeDetail": {
+                              "href": ""
+                            },
+                            "userRedirect": {
+                              "href": ""
+                            }
+                          }
+                        ],
+                        "paymentID": "146972136693"
+                      }
+                    }
+      servers:
+        - url: 'https://sandbox.gestpay.net'
+      tags:
+        - Payment
+    servers:
+      - url: 'https://sandbox.gestpay.net'
+  /api/v1/payment/update:
+    post:
+      description: Auto generated using Swagger Inspector
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderDetails:
+                  type: object
+                  properties:
+                    customerDetail:
+                      type: object
+                      properties:
+                        firstName:
+                          type: string
+                        createdAtDate:
+                          type: string
+                        mobilePhone:
+                          type: string
+                        gender:
+                          type: integer
+                        socialSecurityNumber:
+                          type: string
+                        homePhone:
+                          type: string
+                        middleName:
+                          type: string
+                        company:
+                          type: string
+                        primaryEmail:
+                          type: string
+                        lastname:
+                          type: string
+                        verifiedEmail:
+                          type: string
+                    shippingAddress:
+                      type: object
+                      properties:
+                        houseExtention:
+                          type: string
+                        zipCode:
+                          type: string
+                        city:
+                          type: string
+                        houseNumber:
+                          type: string
+                        lastname:
+                          type: string
+                        firstName:
+                          type: string
+                        primaryPhone:
+                          type: string
+                        streetName:
+                          type: string
+                        streetname2:
+                          type: string
+                        countryCode:
+                          type: string
+                        middleName:
+                          type: string
+                        stateCode:
+                          type: string
+                        state:
+                          type: string
+                        email:
+                          type: string
+                        secondaryPhone:
+                          type: string
+                    billingAddress:
+                      type: object
+                      properties:
+                        houseExtention:
+                          type: string
+                        zipCode:
+                          type: string
+                        city:
+                          type: string
+                        houseNumber:
+                          type: string
+                        lastname:
+                          type: string
+                        firstName:
+                          type: string
+                        primaryPhone:
+                          type: string
+                        streetName:
+                          type: string
+                        streetname2:
+                          type: string
+                        countryCode:
+                          type: string
+                        middleName:
+                          type: string
+                        stateCode:
+                          type: string
+                        state:
+                          type: string
+                        email:
+                          type: string
+                        secondaryPhone:
+                          type: string
+                amount:
+                  type: string
+                shippingDetails:
+                  type: object
+                  properties:
+                    shipToZip:
+                      type: string
+                    shipToStreet2:
+                      type: string
+                    shipToCountryCode:
+                      type: string
+                    shipToName:
+                      type: string
+                    shipToStreet:
+                      type: string
+                    shipToState:
+                      type: string
+                paymentId:
+                  type: string
+                shopLogin:
+                  type: string
+            examples:
+              '0':
+                value: "{\n\t\"paymentId\": \"179315136319\",\n    \"shopLogin\": \"GESPAY80790\",\n    \"amount\": \"72.5\",\n    \"shippingDetails\": {\n        \"shipToName\": \"John Smith\",\n        \"shipToStreet\": \"Av 9ST\",\n        \"shipToState\": \"BS\",\n        \"shipToCountryCode\": \"IT\",\n        \"shipToZip\": \"25121\",\n        \"shipToStreet2\": \"\"\n    },\n    \"orderDetails\": {\n        \"customerDetail\": {\n            \"firstName\": \"John\",\n            \"middleName\": \"Sebastian\",\n            \"lastname\": \"Smith\",\n            \"primaryEmail\": \"jota0222@hotmail.com\",\n            \"homePhone\": \"+573137621213\",\n            \"mobilePhone\": \"+573137621213\",\n            \"gender\": 0,\n            \"socialSecurityNumber\": \"\",\n            \"company\": \"\",\n            \"createdAtDate\": \"2020-07-20\",\n            \"verifiedEmail\": \"jota0222@hotmail.com\"\n        },\n        \"shippingAddress\": {\n            \"firstName\": \"Johana\",\n            \"middleName\": \"\",\n            \"lastname\": \"Smith\",\n            \"streetName\": \"Av 20ST\",\n            \"streetname2\": \"\",\n            \"houseNumber\": \"10\",\n            \"houseExtention\": \"30\",\n            \"city\": \"italy\",\n            \"zipCode\": \"25121\",\n            \"state\": \"BS\",\n            \"countryCode\": \"IT\",\n            \"email\": \"jota0222@hotmail.com\",\n            \"primaryPhone\": \"+573137621213\",\n            \"secondaryPhone\": \"+57573137621213\",\n            \"stateCode\": \"BS\"\n        },\n        \"billingAddress\": {\n            \"firstName\": \"Johana\",\n            \"middleName\": \"\",\n            \"lastname\": \"Smith\",\n            \"streetName\": \"Av 20ST\",\n            \"streetname2\": \"\",\n            \"houseNumber\": \"10\",\n            \"houseExtention\": \"30\",\n            \"city\": \"italy\",\n            \"zipCode\": \"25121\",\n            \"state\": \"BS\",\n            \"countryCode\": \"IT\",\n            \"email\": \"jota0222@hotmail.com\",\n            \"primaryPhone\": \"+573137621213\",\n            \"secondaryPhone\": \"+57573137621213\",\n            \"stateCode\": \"BS\"\n        } \n    }\n}"
+      responses:
+        '200':
+          description: Auto generated using Swagger Inspector
+          content:
+            text/json; charset=utf-8:
+              schema:
+                type: "object"
+                properties: 
+                  error: 
+                    properties: 
+                      code: 
+                        type: "string"
+                      description: 
+                        type: "string"
+                    type: "object"
+                  payload: 
+                    properties: 
+                      transactionType: 
+                        type: "string"
+                      transactionResult: 
+                        type: "string"
+                      paymentID: 
+                        type: "string"
+                    type: "object"
+              examples: 
+                "Success 200":
+                  value: |-
+                    {
+                      "error": {
+                        "code": "0",
+                        "description": "request correctly processed"
+                      },
+                      "payload": {
+                        "transactionType": "update",
+                        "transactionResult": "OK",
+                        "paymentID": "129552137028"
+                      }
+                    }
+      servers:
+        - url: 'https://sandbox.gestpay.net'
+      tags:
+        - Payment
+    servers:
+      - url: 'https://sandbox.gestpay.net'
+  /api/v1/payment/submit:
+    post:
+      description: Auto generated using Swagger Inspector
+      parameters:
+        - name: paymentToken
+          in: header
+          schema:
+            type: string
+          example: e9d26343-1904-4f2d-8c37-3a53f2297f93
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                paymentTypeDetails:
+                  type: object
+                  properties:
+                    creditcard:
+                      type: object
+                      properties:
+                        number:
+                          type: string
+                        expMonth:
+                          type: string
+                        CVV:
+                          type: string
+                        expYear:
+                          type: string
+                        DCC:
+                          type: string
+                        requestToken:
+                          type: string
+                responseURLs:
+                  type: object
+                  properties:
+                    buyerKO:
+                      type: string
+                    buyerOK:
+                      type: string
+                    serverNotificationURL:
+                      type: string
+                shopLogin:
+                  type: string
+                paymentType:
+                  type: string
+                buyer:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    email:
+                      type: string
+            examples:
+              '0':
+                value: "{  \n  \"shopLogin\":\"GESPAY80790\",\n  \"paymentType\":\"CREDITCARD\",\n  \"buyer\":{  \n    \"name\":\"John\",\n    \"email\":\"jota0222@hotmail.com\"\n  },\n  \"paymentTypeDetails\":{  \n    \"creditcard\":{\n      \"number\": \"5412388800004012\",\n\t  \"expMonth\": \"05\",\n\t  \"expYear\": \"27\",\n\t  \"CVV\": \"123\",\n      \"requestToken\":\"MASKEDPAN\",\n      \"DCC\": \"false\"\n    }\n  },\n  \"responseURLs\":{  \n    \"buyerOK\":\"https://google.com\",\n    \"buyerKO\":\"https://yandex.com\",\n    \"serverNotificationURL\":\"https://bing.com\"\n  }\n}\n"
+      responses:
+        '200':
+          description: Auto generated using Swagger Inspector
+          content:
+            text/json; charset=utf-8:
+              schema:
+                type: "object"
+                properties:
+                  error: 
+                    required: 
+                      - "code"
+                      - "description"
+                    properties: 
+                      code: 
+                        type: "string"
+                      description: 
+                        type: "string"
+                    type: "object"
+                  payload: 
+                    properties: 
+                      transactionType: 
+                        type: "string"
+                      transactionResult: 
+                        type: "string"
+                      transactionErrorCode: 
+                        type: "string"
+                      transactionErrorDescription: 
+                        type: "string"
+                      bankTransactionID: 
+                        type: "string"
+                      shopTransactionID: 
+                        type: "string"
+                      authorizationCode: 
+                        type: "string"
+                      paymentID: 
+                        type: "string"
+                      currency: 
+                        type: "string"
+                      country: 
+                        type: "string"
+                      company: 
+                        type: "string"
+                      tdLevel: 
+                        type: "string"
+                      buyer: 
+                        required: 
+                          - "name"
+                          - "email"
+                        properties: 
+                          name: 
+                            type: "string"
+                          email: 
+                            type: "string"
+                        type: "object"
+                      risk: 
+                        required: 
+                          - "riskResponseCode"
+                          - "riskResponseDescription"
+                        properties: 
+                          riskResponseCode: 
+                            type: "string"
+                          riskResponseDescription: 
+                            type: "string"
+                        type: "object"
+                      customInfo: 
+                        properties: {}
+                        type: "object"
+                      alertCode: 
+                        type: "string"
+                      alertDescription: 
+                        type: "string"
+                      cvvPresent: 
+                        type: "string"
+                      maskedPAN: 
+                        type: "string"
+                      paymentMethod: 
+                        type: "string"
+                      productType: 
+                        type: "string"
+                      token: 
+                        type: "string"
+                      tokenExpiryMonth: 
+                        type: "string"
+                      tokenExpiryYear: 
+                        type: "string"
+                      userRedirect: 
+                        required: 
+                          - "href"
+                        properties: 
+                          href: 
+                            type: "string"
+                        type: "object"
+                    type: "object"
+              examples: 
+                '3ds required':
+                  value: |-
+                    {
+                      "error":{  
+                        "code":"0",
+                        "description":"request correctly processed"
+                      },
+                      "payload": {
+                        "transactionType":"submit",
+                        "transactionResult":"",
+                        "transactionErrorCode" :"8006",   
+                        "transactionErrorDescription" :"Verify By Visa",
+                        "bankTransactionID":"",
+                        "shopTransactionID":"myshoptransactionID",
+                        "authorizationCode":"",
+                        "paymentID":"00000000001",
+                        "currency":"",
+                        "country":"",
+                        "company":"",
+                        "tdLevel":"",
+                        "buyer":{
+                          "name":"",
+                          "email":""
+                        },
+                        "risk":{
+                          "riskResponseCode":"",
+                          "riskResponseDescription":""
+                        },
+                        "customInfo":{
+                      
+                        },
+                        "alertCode":"",
+                        "alertDescription":"",
+                        "cvvPresent":"",
+                        "maskedPAN":"",
+                        "paymentMethod":"",
+                        "productType":"",
+                        "token":"",
+                        "tokenExpiryMonth":"",
+                        "tokenExpiryYear":"",
+                        "userRedirect":{
+                          "href":"https://ecomm.sella.it/pagam/pagam3d.aspx?a={shopLogin}&b={paymentToken}"
+                        }
+                      }
+                    }
+      servers:
+        - url: 'https://sandbox.gestpay.net'
+      tags:
+        - Payment
+    servers:
+      - url: 'https://sandbox.gestpay.net'
+  /api/v1/payment/capture/:
+    post:
+      description: Auto generated using Swagger Inspector
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                amount:
+                  type: string
+                paymentId:
+                  type: string
+                currency:
+                  type: string
+                shopLogin:
+                  type: string
+            examples:
+              '0':
+                value: "{\n\t\"shopLogin\": \"GESPAY80790\",\n\t\"paymentId\": \"179315136319\",\n\t\"amount\": \"72.5\",\n\t\"currency\": \"EUR\"\n}"
+      responses:
+        '200':
+          description: Auto generated using Swagger Inspector
+          content:
+            text/json; charset=utf-8:
+              schema:
+                type: "object"
+                properties: 
+                  error: 
+                    required: 
+                      - "code"
+                      - "description"
+                    properties: 
+                      code: 
+                        type: "string"
+                      description: 
+                        type: "string"
+                    type: "object"
+                  payload: 
+                    required: 
+                      - "transactionType"
+                      - "transactionResult"
+                      - "bankTransactionID"
+                      - "shopTransactionID"
+                      - "paymentID"
+                    properties: 
+                      transactionType: 
+                        type: "string"
+                      transactionResult: 
+                        type: "string"
+                      bankTransactionID: 
+                        type: "string"
+                      shopTransactionID: 
+                        type: "string"
+                      paymentID: 
+                        type: "string"
+                    type: "object"
+              examples: 
+                'Success':
+                  value: |- 
+                    {
+                      "error":{  
+                        "code":"0",
+                        "description":"request correctly processed"
+                      },
+                      "payload":{
+                        "transactionType":"capture",
+                        "transactionResult":"OK",
+                        "bankTransactionID":"{bankTransactionID}",
+                        "shopTransactionID":"{shopTransactionID}",
+                        "paymentID":"{paymentID}"
+                      }
+                    }
+      servers:
+        - url: 'https://sandbox.gestpay.net'
+      tags:
+        - Payment
+    servers:
+      - url: 'https://sandbox.gestpay.net'
+  /api/v1/payment/refund/:
+    post:
+      description: Auto generated using Swagger Inspector
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                amount:
+                  type: string
+                paymentID:
+                  type: string
+                refundReason:
+                  type: string
+                currency:
+                  type: string
+                shopLogin:
+                  type: string
+            examples:
+              '0':
+                value: "{\n\t\"shopLogin\": \"GESPAY80790\",\n\t\"paymentID\": \"179315136319\",\n\t\"refundReason\": \"Not a valid currency in Kooomo\",\n\t\"amount\": \"75.5\",\n\t\"currency\": \"EUR\"\n}\n\t\n\n"
+      responses:
+        '200':
+          description: Auto generated using Swagger Inspector
+          content:
+            text/json; charset=utf-8:
+              schema:
+                properties: 
+                  error: 
+                    required: 
+                      - "code"
+                      - "description"
+                    properties: 
+                      code: 
+                        type: "string"
+                      description: 
+                        type: "string"
+                    type: "object"
+                  payload: 
+                    properties: 
+                      transactionType: 
+                        type: "string"
+                      transactionResult: 
+                        type: "string"
+                      bankTransactionID: 
+                        type: "string"
+                      shopTransactionID: 
+                        type: "string"
+                      paymentID: 
+                        type: "string"
+                    type: "object"
+                type: "object"
+              examples:
+                'Success':
+                  value: |-
+                    {
+                      "error":{  
+                        "code":"0",
+                        "description":"request correctly processed"
+                      },
+                      "payload":{
+                        "transactionType":"refund",
+                        "transactionResult":"OK",
+                        "bankTransactionID":"{bankTransactionID}",
+                        "shopTransactionID":"{shopTransactionID}",
+                        "paymentID":"{paymentID}"
+                      }
+                    }
+      servers:
+        - url: 'https://sandbox.gestpay.net'
+      tags:
+        - Payment
+    servers:
+      - url: 'https://sandbox.gestpay.net'
+  /api/v1/payment/cancel/:
+    post:
+      description: Auto generated using Swagger Inspector
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                paymentId:
+                  type: string
+                cancelReason:
+                  type: string
+                shopLogin:
+                  type: string
+            examples:
+              '0':
+                value: "{\n\t\"shopLogin\": \"GESPAY80790\",\n\t\"paymentId\": \"179315136319\",\n\t\"cancelReason\": \"Not valid currency in Kooomo\"\n}"
+      responses:
+        '200':
+          description: Auto generated using Swagger Inspector
+          content:
+            text/json; charset=utf-8:
+              schema:
+                type: object
+                properties: 
+                  error: 
+                    properties: 
+                      code: 
+                        type: "string"
+                      description: 
+                        type: "string"
+                    type: "object"
+                  payload: 
+                    properties: 
+                      transactionType: 
+                        type: "string"
+                      transactionResult: 
+                        type: "string"
+                      bankTransactionID: 
+                        type: "string"
+                      shopTransactionID: 
+                        type: "string"
+                      paymentID: 
+                        type: "string"
+                    type: "object"
+              examples:
+                'Success':
+                  value: |-
+                    {
+                      "error": {
+                        "code": "0",
+                        "description": "request correctly processed"
+                      },
+                      "payload": {
+                        "transactionType": "cancel",
+                        "transactionResult": "OK",
+                        "bankTransactionID": "{bankTransactionID}",
+                        "shopTransactionID": "{shopTransactionID}",
+                        "paymentID": "{paymentID}"
+                      }
+                    }
+      servers:
+        - url: 'https://sandbox.gestpay.net'
+      tags:
+        - Payment
+    servers:
+      - url: 'https://sandbox.gestpay.net'
+tags:
+  - name: Payment
