@@ -165,7 +165,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **apiV1PaymentCreatePost**
-> \Axerve\Client\Model\InlineResponse2002 apiV1PaymentCreatePost($body)
+> \Axerve\Client\Model\CreateActionResponseModel apiV1PaymentCreatePost($body)
 
 
 
@@ -200,7 +200,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Axerve\Client\Model\InlineResponse2002**](../Model/InlineResponse2002.md)
+[**\Axerve\Client\Model\CreateActionResponseModel**](../Model/InlineResponse2002.md)
 
 ### Authorization
 
