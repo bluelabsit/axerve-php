@@ -1,4 +1,4 @@
-# InlineResponse2001Error
+# AxerveErrorModel
 
 ## Properties
 Name | Type | Description | Notes

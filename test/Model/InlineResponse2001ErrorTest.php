@@ -32,7 +32,7 @@ namespace Axerve\Client;
  * InlineResponse2001ErrorTest Class Doc Comment
  *
  * @category    Class
- * @description InlineResponse2001Error
+ * @description AxerveErrorModel
  * @package     Axerve\Client
  * @author      Axerve Codegen team
  * @link        https://github.com/axerve-api/axerve-codegen
@@ -69,7 +69,7 @@ class InlineResponse2001ErrorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "InlineResponse2001Error"
+     * Test "AxerveErrorModel"
      */
     public function testInlineResponse2001Error()
     {

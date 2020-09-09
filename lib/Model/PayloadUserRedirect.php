@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse2006PayloadUserRedirect
+ * PayloadUserRedirect
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Axerve\Client\ObjectSerializer;
 
 /**
- * InlineResponse2006PayloadUserRedirect Class Doc Comment
+ * PayloadUserRedirect Class Doc Comment
  *
  * @category Class
  * @package  Axerve\Client
  * @author   Axerve Codegen team
  * @link     https://github.com/axerve-api/axerve-codegen
  */
-class InlineResponse2006PayloadUserRedirect implements ModelInterface, ArrayAccess
+class PayloadUserRedirect implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 

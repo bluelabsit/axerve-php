@@ -56,7 +56,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $axerveTypes = [
-        'error' => '\Axerve\Client\Model\InlineResponse2001Error',
+        'error' => '\Axerve\Client\Model\AxerveErrorModel',
 'payload' => '\Axerve\Client\Model\InlineResponse2001Payload'    ];
 
     /**
@@ -205,7 +205,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
     /**
      * Gets error
      *
-     * @return \Axerve\Client\Model\InlineResponse2001Error
+     * @return \Axerve\Client\Model\AxerveErrorModel
      */
     public function getError()
     {
@@ -215,7 +215,7 @@ class InlineResponse2001 implements ModelInterface, ArrayAccess
     /**
      * Sets error
      *
-     * @param \Axerve\Client\Model\InlineResponse2001Error $error error
+     * @param \Axerve\Client\Model\AxerveErrorModel $error error
      *
      * @return $this
      */

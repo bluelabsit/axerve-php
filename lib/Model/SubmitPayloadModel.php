@@ -80,7 +80,7 @@ class SubmitPayloadModel implements ModelInterface, ArrayAccess
 'token' => 'string',
 'token_expiry_month' => 'string',
 'token_expiry_year' => 'string',
-'user_redirect' => '\Axerve\Client\Model\InlineResponse2006PayloadUserRedirect'    ];
+'user_redirect' => '\Axerve\Client\Model\PayloadUserRedirect'];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -919,7 +919,7 @@ class SubmitPayloadModel implements ModelInterface, ArrayAccess
     /**
      * Gets user_redirect
      *
-     * @return \Axerve\Client\Model\InlineResponse2006PayloadUserRedirect
+     * @return \Axerve\Client\Model\PayloadUserRedirect
      */
     public function getUserRedirect()
     {
@@ -929,7 +929,7 @@ class SubmitPayloadModel implements ModelInterface, ArrayAccess
     /**
      * Sets user_redirect
      *
-     * @param \Axerve\Client\Model\InlineResponse2006PayloadUserRedirect $user_redirect user_redirect
+     * @param \Axerve\Client\Model\PayloadUserRedirect $user_redirect user_redirect
      *
      * @return $this
      */

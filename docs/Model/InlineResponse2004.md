@@ -1,12 +1,10 @@
-# Body
+# InlineResponse2004
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**shop_transaction_id** | **string** |  | [optional] 
-**with_auth** | **string** |  | [optional] 
-**creditcard** | [**\Axerve\Client\Model\Apiv1checkcreditCardCreditcard**](Apiv1checkcreditCardCreditcard.md) |  | [optional] 
-**shop_login** | **string** |  | [optional] 
+**error** | [**\Axerve\Client\Model\AxerveErrorModel**](InlineResponse2001Error.md) |  | [optional] 
+**payload** | [**\Axerve\Client\Model\InlineResponse2004Payload**](InlineResponse2004Payload.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

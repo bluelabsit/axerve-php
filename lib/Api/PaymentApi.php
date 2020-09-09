@@ -38,7 +38,7 @@ use Axerve\Client\Model\Body6;
 use Axerve\Client\Model\CaptureResponseModel;
 use Axerve\Client\Model\CreatePaymentModel;
 use Axerve\Client\Model\InlineResponse2001;
-use Axerve\Client\Model\InlineResponse2002;
+use Axerve\Client\Model\CreateActionResponseModel;
 use Axerve\Client\Model\InlineResponse2003;
 use Axerve\Client\Model\InlineResponse2004;
 use Axerve\Client\Model\PaymentMethodsResponseModel;
@@ -698,7 +698,7 @@ class PaymentApi
      *
      * @param CreatePaymentModel $body body (optional)
      *
-     * @return InlineResponse2002
+     * @return CreateActionResponseModel
      * @throws InvalidArgumentException
      * @throws ApiException on non-2xx response
      */
@@ -713,13 +713,13 @@ class PaymentApi
      *
      * @param CreatePaymentModel $body (optional)
      *
-     * @return array of \Axerve\Client\Model\InlineResponse2002, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Axerve\Client\Model\CreateActionResponseModel, HTTP status code, HTTP response headers (array of strings)
      * @throws InvalidArgumentException
      * @throws ApiException on non-2xx response
      */
     public function apiV1PaymentCreatePostWithHttpInfo($body = null)
     {
-        $returnType = '\Axerve\Client\Model\InlineResponse2002';
+        $returnType = '\Axerve\Client\Model\CreateActionResponseModel';
         $request = $this->apiV1PaymentCreatePostRequest($body);
 
         try {
@@ -771,7 +771,7 @@ class PaymentApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Axerve\Client\Model\InlineResponse2002',
+                        '\Axerve\Client\Model\CreateActionResponseModel',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -813,7 +813,7 @@ class PaymentApi
      */
     public function apiV1PaymentCreatePostAsyncWithHttpInfo($body = null)
     {
-        $returnType = '\Axerve\Client\Model\InlineResponse2002';
+        $returnType = '\Axerve\Client\Model\CreateActionResponseModel';
         $request = $this->apiV1PaymentCreatePostRequest($body);
 
         return $this->client
