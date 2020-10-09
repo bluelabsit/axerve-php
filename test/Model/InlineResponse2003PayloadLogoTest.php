@@ -32,7 +32,7 @@ namespace Axerve\Client;
  * InlineResponse2003PayloadLogoTest Class Doc Comment
  *
  * @category    Class
- * @description InlineResponse2003PayloadLogo
+ * @description InlineResponse20010PayloadLogo
  * @package     Axerve\Client
  * @author      Axerve Codegen team
  * @link        https://github.com/axerve-api/axerve-codegen
@@ -69,7 +69,7 @@ class InlineResponse2003PayloadLogoTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "InlineResponse2003PayloadLogo"
+     * Test "InlineResponse20010PayloadLogo"
      */
     public function testInlineResponse2003PayloadLogo()
     {

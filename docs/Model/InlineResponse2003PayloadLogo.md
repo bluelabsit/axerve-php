@@ -1,4 +1,4 @@
-# InlineResponse2003PayloadLogo
+# InlineResponse20010PayloadLogo
 
 ## Properties
 Name | Type | Description | Notes
