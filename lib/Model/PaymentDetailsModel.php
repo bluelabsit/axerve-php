@@ -651,7 +651,7 @@ class PaymentDetailsModel implements ModelInterface, ArrayAccess
         $lastEventDate = new DateTime('@0');
         $lastEvent = null;
         foreach ($this->getEvents() as $event) {
-            $currentEventDate = new DateTime($event->getEventdate());
+            $currentEventDate = DateTime::createFromFormat('d/m/y H:i:s', $event->getEventdate());
             
             if ($currentEventDate > $lastEventDate) {
                 $lastEvent = $event;
