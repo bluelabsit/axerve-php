@@ -29,9 +29,14 @@
         "friendsofphp/php-cs-fixer": "~1.12"
     },
     "autoload": {
-        "psr-4": { "Axerve\\Client\\" : "lib/" }
+        "psr-4": {
+            "Axerve\\Client\\": "lib/"
+        }
     },
     "autoload-dev": {
-        "psr-4": { "Axerve\\Client\\" : "test/" }
-    }
+        "psr-4": {
+            "Axerve\\Client\\": "test/"
+        }
+    },
+    "version": "1.0.3"
 }
