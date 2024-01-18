@@ -214,7 +214,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **apiV1PaymentMethodsPaymentIdLanguageIdGet**
-> \Axerve\Client\Model\InlineResponse2003 apiV1PaymentMethodsPaymentIdLanguageIdGet($payment_id, $language_id, $payment_token)
+> \Axerve\Client\Model\InlineResponse20010 apiV1PaymentMethodsPaymentIdLanguageIdGet($payment_id, $language_id, $payment_token)
 
 
 
@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Axerve\Client\Model\InlineResponse2003**](../Model/InlineResponse2003.md)
+[**\Axerve\Client\Model\InlineResponse20010**](../Model/InlineResponse2003.md)
 
 ### Authorization
 
