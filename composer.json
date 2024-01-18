@@ -1,6 +1,6 @@
 {
-    "name": "zerogrey/axerve-php",
-    "description": "",
+    "name": "bluelabsit/axerve-php",
+    "description": "Axerve PHP",
     "keywords": [
         "axerve",
         "zerogrey",
@@ -8,12 +8,16 @@
         "sdk",
         "api"
     ],
-    "homepage": "https://github.com/Zerogrey/axerve-php",
+    "homepage": "https://github.com/bluelabsit/axerve-php",
     "license": "proprietary",
     "authors": [
         {
             "name": "ZeroGrey",
             "homepage": "https://www.zerogrey.com/"
+        },
+        {
+            "name": "Bluelabs",
+            "homepage": "https://www.bluelabs.it/"
         }
     ],
     "require": {
@@ -29,9 +33,14 @@
         "friendsofphp/php-cs-fixer": "~1.12"
     },
     "autoload": {
-        "psr-4": { "Axerve\\Client\\" : "lib/" }
+        "psr-4": {
+            "Axerve\\Client\\": "lib/"
+        }
     },
     "autoload-dev": {
-        "psr-4": { "Axerve\\Client\\" : "test/" }
-    }
+        "psr-4": {
+            "Axerve\\Client\\": "test/"
+        }
+    },
+    "version": "1.0.3"
 }
