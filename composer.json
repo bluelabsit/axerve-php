@@ -1,6 +1,6 @@
 {
-    "name": "zerogrey/axerve-php",
-    "description": "",
+    "name": "bluelabsit/axerve-php",
+    "description": "Axerve PHP",
     "keywords": [
         "axerve",
         "zerogrey",
@@ -8,12 +8,16 @@
         "sdk",
         "api"
     ],
-    "homepage": "https://github.com/Zerogrey/axerve-php",
+    "homepage": "https://github.com/bluelabsit/axerve-php",
     "license": "proprietary",
     "authors": [
         {
             "name": "ZeroGrey",
             "homepage": "https://www.zerogrey.com/"
+        },
+        {
+            "name": "Bluelabs",
+            "homepage": "https://www.bluelabs.it/"
         }
     ],
     "require": {
