@@ -55,7 +55,6 @@ use GuzzleHttp\RequestOptions;
 use InvalidArgumentException;
 use RuntimeException;
 use stdClass;
-use function GuzzleHttp\Psr7\build_query;
 
 /**
  * PaymentApi Class Doc Comment
@@ -329,7 +328,7 @@ class PaymentApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = build_query($formParams);
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
             }
         }
 
@@ -350,7 +349,7 @@ class PaymentApi
             $headers
         );
 
-        $query = build_query($queryParams);
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -580,12 +579,12 @@ class PaymentApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
             }
         }
-    
+
         // this endpoint requires API key authentication
-    
+
         $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
         if ($apiKey !== null) {
             $headers['Authorization'] = $apiKey;
@@ -602,7 +601,7 @@ class PaymentApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -698,7 +697,7 @@ class PaymentApi
             throw $e;
         }
     }
-    
+
     /**
      * Create request for operation 'apiV1PaymentCapturePost'
      *
@@ -709,21 +708,21 @@ class PaymentApi
      */
     protected function apiV1PaymentCapturePostRequest($body = null)
     {
-        
+
         $resourcePath = '/api/v1/payment/capture';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-        
-        
+
+
         // body params
         $_tempBody = null;
         if (isset($body)) {
             $_tempBody = $body;
         }
-        
+
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['text/json; charset=utf-8']
@@ -734,7 +733,7 @@ class PaymentApi
                 ['application/json']
             );
         }
-        
+
         // for model (json/xml)
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
@@ -754,35 +753,35 @@ class PaymentApi
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-                
+
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-                
+
             } else {
                 // for HTTP post (form)
-                $httpBody = build_query($formParams);
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
             }
         }
-        
+
         // this endpoint requires API key authentication
-        
+
         $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
         if ($apiKey !== null) {
             $headers['Authorization'] = $apiKey;
         }
-        
+
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
-        
+
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
             $headers
         );
-        
-        $query = build_query($queryParams);
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -1012,7 +1011,7 @@ class PaymentApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = build_query($formParams);
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
             }
         }
 
@@ -1034,7 +1033,7 @@ class PaymentApi
             $headers
         );
 
-        $query = build_query($queryParams);
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -1042,7 +1041,7 @@ class PaymentApi
             $httpBody
         );
     }
-        
+
     /**
      * Operation apiV1PaymentDetailPaymentIdGet
      *
@@ -1057,7 +1056,7 @@ class PaymentApi
         [$response] = $this->apiV1PaymentDetailPaymentIdGetWithHttpInfo($payment_id);
         return $response;
     }
-    
+
     /**
      * Operation apiV1PaymentDetailPaymentIdGetWithHttpInfo
      *
@@ -1071,7 +1070,7 @@ class PaymentApi
     {
         $returnType = '\Axerve\Client\Model\PaymentDetailsResponseModel';
         $request = $this->apiV1PaymentDetailPaymentIdGetRequest($payment_id);
-        
+
         try {
             $options = $this->createHttpClientOption();
             try {
@@ -1084,9 +1083,9 @@ class PaymentApi
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
                 );
             }
-            
+
             $statusCode = $response->getStatusCode();
-            
+
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
                     sprintf(
@@ -1099,7 +1098,7 @@ class PaymentApi
                     $response->getBody()
                 );
             }
-            
+
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1109,13 +1108,13 @@ class PaymentApi
                     $content = json_decode($content);
                 }
             }
-            
+
             return [
                 ObjectSerializer::deserialize($content, $returnType, []),
                 $response->getStatusCode(),
                 $response->getHeaders()
             ];
-            
+
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
@@ -1130,7 +1129,7 @@ class PaymentApi
             throw $e;
         }
     }
-    
+
     /**
      * Operation apiV1PaymentDetailPaymentIdGetAsync
      *
@@ -1150,7 +1149,7 @@ class PaymentApi
                 }
             );
     }
-    
+
     /**
      * Operation apiV1PaymentDetailPaymentIdGetAsyncWithHttpInfo
      *
@@ -1165,7 +1164,7 @@ class PaymentApi
     {
         $returnType = '\Axerve\Client\Model\PaymentDetailsResponseModel';
         $request = $this->apiV1PaymentDetailPaymentIdGetRequest($payment_id);
-        
+
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
@@ -1179,7 +1178,7 @@ class PaymentApi
                             $content = json_decode($content);
                         }
                     }
-                    
+
                     return [
                         ObjectSerializer::deserialize($content, $returnType, []),
                         $response->getStatusCode(),
@@ -1202,7 +1201,7 @@ class PaymentApi
                 }
             );
     }
-    
+
     /**
      * Create request for operation 'apiV1PaymentDetailPaymentIdGet'
      *
@@ -1219,15 +1218,15 @@ class PaymentApi
                 'Missing the required parameter $payment_id when calling apiV1PaymentDetailPaymentIdGet'
             );
         }
-        
+
         $resourcePath = '/api/v1/payment/detail/{paymentId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
-        
-        
+
+
         // path params
         if ($payment_id !== null) {
             $resourcePath = str_replace(
@@ -1236,10 +1235,10 @@ class PaymentApi
                 $resourcePath
             );
         }
-        
+
         // body params
         $_tempBody = null;
-        
+
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['text/json; charset=utf-8']
@@ -1250,7 +1249,7 @@ class PaymentApi
                 []
             );
         }
-        
+
         // for model (json/xml)
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
@@ -1270,34 +1269,34 @@ class PaymentApi
                 }
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
-                
+
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
-                
+
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
             }
         }
-        
+
         // this endpoint requires API key authentication
         $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
         if ($apiKey !== null) {
             $headers['Authorization'] = $apiKey;
         }
-        
+
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
         }
-        
+
         $headers = array_merge(
             $defaultHeaders,
             $headerParams,
             $headers
         );
-        
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -1567,7 +1566,7 @@ class PaymentApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = build_query($formParams);
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
             }
         }
 
@@ -1583,7 +1582,7 @@ class PaymentApi
             $headers
         );
 
-        $query = build_query($queryParams);
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -1813,17 +1812,17 @@ class PaymentApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
             }
         }
-    
+
         // this endpoint requires API key authentication
-    
+
         $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
         if ($apiKey !== null) {
             $headers['Authorization'] = $apiKey;
         }
-        
+
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
             $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
@@ -1835,7 +1834,7 @@ class PaymentApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -2075,7 +2074,7 @@ class PaymentApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = build_query($formParams);
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
             }
         }
 
@@ -2091,7 +2090,7 @@ class PaymentApi
             $headers
         );
 
-        $query = build_query($queryParams);
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -2321,7 +2320,7 @@ class PaymentApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = build_query($formParams);
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
             }
         }
 
@@ -2337,7 +2336,7 @@ class PaymentApi
             $headers
         );
 
-        $query = build_query($queryParams);
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -2579,7 +2578,7 @@ class PaymentApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = build_query($formParams);
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
             }
         }
 
@@ -2600,7 +2599,7 @@ class PaymentApi
             $headers
         );
 
-        $query = build_query($queryParams);
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
