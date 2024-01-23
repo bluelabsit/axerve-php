@@ -69,6 +69,7 @@ class CreatePaymentModel implements ModelInterface, ArrayAccess
         'client_ip' => 'string',
         'currency' => 'string',
         'recurrent' => 'string',
+        'request_token' => 'string',
         'shop_login' => 'string'];
 
     /**
@@ -90,6 +91,7 @@ class CreatePaymentModel implements ModelInterface, ArrayAccess
         'client_ip' => null,
         'currency' => null,
         'recurrent' => null,
+        'request_token' => null,
         'shop_login' => null];
 
     /**
@@ -132,6 +134,7 @@ class CreatePaymentModel implements ModelInterface, ArrayAccess
         'client_ip' => 'clientIP',
         'currency' => 'currency',
         'recurrent' => 'recurrent',
+        'request_token' => 'requestToken',
         'shop_login' => 'shopLogin'];
 
     /**
@@ -153,6 +156,7 @@ class CreatePaymentModel implements ModelInterface, ArrayAccess
         'client_ip' => 'setClientIp',
         'currency' => 'setCurrency',
         'recurrent' => 'setRecurrent',
+        'request_token' => 'setRequestToken',
         'shop_login' => 'setShopLogin'];
 
     /**
@@ -174,6 +178,7 @@ class CreatePaymentModel implements ModelInterface, ArrayAccess
         'client_ip' => 'getClientIp',
         'currency' => 'getCurrency',
         'recurrent' => 'getRecurrent',
+        'request_token' => 'getRequestToken',
         'shop_login' => 'getShopLogin'];
 
     /**
@@ -246,6 +251,7 @@ class CreatePaymentModel implements ModelInterface, ArrayAccess
         $this->container['client_ip'] = isset($data['client_ip']) ? $data['client_ip'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['recurrent'] = isset($data['recurrent']) ? $data['recurrent'] : null;
+        $this->container['request_token'] = isset($data['request_token']) ? $data['request_token'] : null;
         $this->container['shop_login'] = isset($data['shop_login']) ? $data['shop_login'] : null;
     }
 
@@ -581,6 +587,30 @@ class CreatePaymentModel implements ModelInterface, ArrayAccess
     public function setRecurrent($recurrent)
     {
         $this->container['recurrent'] = $recurrent;
+
+        return $this;
+    }
+
+    /**
+     * Gets request_token
+     *
+     * @return string
+     */
+    public function getRequestToken()
+    {
+        return $this->container['request_token'];
+    }
+
+    /**
+     * Sets request_token
+     *
+     * @param string $request_token request_token
+     *
+     * @return $this
+     */
+    public function setRequestToken($request_token)
+    {
+        $this->container['request_token'] = $request_token;
 
         return $this;
     }
